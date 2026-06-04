@@ -1,0 +1,46 @@
+# encoding: UTF-8
+
+control 'C-6.3.4.9' do
+  title 'Ensure audit tools owner is configured'
+  desc  "
+    Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.
+
+    Protecting audit information includes identifying and protecting the tools used to view and manipulate log data. Protecting audit tools is necessary to prevent unauthorized operation on audit information.
+  "
+  desc  'rationale', "
+    Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.
+
+    Protecting audit information includes identifying and protecting the tools used to view and manipulate log data. Protecting audit tools is necessary to prevent unauthorized operation on audit information.
+  "
+  desc  'check', "
+    Run the following command to verify the audit tools are owned by the `root` user: 
+
+    ```
+    # stat -Lc \"%n %U\" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/augenrules | awk '$2 != \"root\" {print}'
+    ```
+
+    Nothing should be returned
+  "
+  desc  'fix', "
+    Run the following command to change the owner of the audit tools to the `root` user:
+
+    ```
+    # chown root /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/augenrules
+    ```
+  "
+  impact 0.5
+  tag severity:              'medium'
+  tag nist:                  ['AC-3', 'AC-8 a']
+  tag cci:                   ['CCI-000213', 'CCI-000051']
+  tag cis_rid:               '6.3.4.9'
+  tag cis_number:            '6.3.4.9'
+  tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'
+  tag cis_rule_id:           'SV-06030409r1_rule'
+  tag cis_version:           '2.0.0'
+  tag cis_level:             1
+  tag cis_scored:            true
+
+  describe 'Ensure audit tools owner is configured' do
+    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06030409r1_rule.'
+  end
+end
