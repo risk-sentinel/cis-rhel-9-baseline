@@ -54,8 +54,10 @@ control 'C-5.2.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure sudo log file exists' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-050203r1_rule.'
+  impact 0.5
+  describe command(%q{grep -rPi -- '^\h*Defaults\h+([^#\n\r]+,)?\h*logfile\h*=' /etc/sudoers /etc/sudoers.d/ 2>/dev/null}) do
+    its('stdout') { should match(/\S/) }
   end
 end
