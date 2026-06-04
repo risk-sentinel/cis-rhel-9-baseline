@@ -75,8 +75,11 @@ control 'C-4.2.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure firewalld drops unnecessary services and ports' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-040201r1_rule.'
+  impact 0.5
+  describe 'firewalld drops unnecessary services/ports (4.2.1)' do
+    skip 'operational: the set of permitted services/ports is consumer workload policy; operator attests the allowed list against the service inventory (verified network-listening surface is covered by 2.1.22).'
   end
 end
