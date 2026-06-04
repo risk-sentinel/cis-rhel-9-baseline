@@ -90,8 +90,10 @@ control 'C-6.3.3.14' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure events that modify the system\'s Mandatory Access Controls are collected' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06030314r1_rule.'
+  impact 0.5
+  describe command(%q{grep -rhE -- '(\-k +MAC-policy|key=MAC-policy)' /etc/audit/rules.d/ 2>/dev/null}) do
+    its('stdout') { should match(/\S/) }
   end
 end

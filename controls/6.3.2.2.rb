@@ -39,8 +39,10 @@ control 'C-6.3.2.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure audit logs are not automatically deleted' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06030202r1_rule.'
+  impact 0.5
+  describe command(%q{grep -E '^\s*max_log_file_action\s*=\s*keep_logs' /etc/audit/auditd.conf}) do
+    its('stdout') { should match(/\S/) }
   end
 end

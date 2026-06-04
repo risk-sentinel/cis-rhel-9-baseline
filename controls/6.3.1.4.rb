@@ -53,8 +53,11 @@ control 'C-6.3.1.4' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure auditd service is enabled and active' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06030104r1_rule.'
+  impact 0.5
+  describe service('auditd') do
+    it { should be_enabled }
+    it { should be_running }
   end
 end

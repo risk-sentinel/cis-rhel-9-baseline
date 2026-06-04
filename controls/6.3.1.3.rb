@@ -73,8 +73,10 @@ control 'C-6.3.1.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure audit_backlog_limit is sufficient' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06030103r1_rule.'
+  impact 0.5
+  describe command(%q{grubby --info=ALL 2>/dev/null | grep '^args=' | grep -v 'audit_backlog_limit='}) do
+    its('stdout.strip') { should be_empty }
   end
 end

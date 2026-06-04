@@ -58,8 +58,10 @@ control 'C-6.3.4.8' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure audit tools mode is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06030408r1_rule.'
+  impact 0.5
+  describe command(%q{find /sbin/auditctl /sbin/auditd /sbin/ausearch /sbin/aureport /sbin/autrace /sbin/augenrules /sbin/audisp-remote /sbin/audisp-syslog -perm /0022 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
   end
 end

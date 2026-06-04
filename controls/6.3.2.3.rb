@@ -85,8 +85,10 @@ control 'C-6.3.2.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure system is disabled when audit logs are full' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06030203r1_rule.'
+  impact 0.5
+  describe command(%q{grep -E '^\s*(admin_space_left_action|disk_full_action)\s*=\s*(halt|single)' /etc/audit/auditd.conf}) do
+    its('stdout') { should match(/\S/) }
   end
 end

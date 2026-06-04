@@ -37,8 +37,10 @@ control 'C-6.3.2.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure audit log storage size is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06030201r1_rule.'
+  impact 0.5
+  describe command(%q{grep -E '^\s*max_log_file\s*=' /etc/audit/auditd.conf}) do
+    its('stdout') { should match(/\S/) }
   end
 end

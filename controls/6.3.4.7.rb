@@ -43,8 +43,10 @@ control 'C-6.3.4.7' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure audit configuration files group owner is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06030407r1_rule.'
+  impact 0.5
+  describe command(%q{find /etc/audit -type f ! -group root 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
   end
 end

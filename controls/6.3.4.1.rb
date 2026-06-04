@@ -57,8 +57,11 @@ control 'C-6.3.4.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure the audit log file directory mode is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06030401r1_rule.'
+  impact 0.5
+  describe directory('/var/log/audit') do
+    it { should exist }
+    it { should_not be_more_permissive_than('0750') }
   end
 end

@@ -96,8 +96,10 @@ control 'C-6.3.3.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure events that modify the sudo log file are collected' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06030303r1_rule.'
+  impact 0.5
+  describe command(%q{grep -rhE -- '(sudo_log_file|/var/log/sudo)' /etc/audit/rules.d/ 2>/dev/null}) do
+    its('stdout') { should match(/\S/) }
   end
 end
