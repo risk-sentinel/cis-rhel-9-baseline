@@ -54,8 +54,12 @@ control 'C-4.3.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure nftables established connections are configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-040302r1_rule.'
+  applicable = !service('firewalld').running?
+  impact(applicable ? 0.5 : 0.0)
+  describe command(%q{nft list ruleset 2>/dev/null | grep -E 'ct state (established|related)'}) do
+    its('stdout') { should match(/\S/) }
   end
+  only_if('N/A unless nftables (standalone) is the active firewall (see 4.1.2)') { applicable }
 end

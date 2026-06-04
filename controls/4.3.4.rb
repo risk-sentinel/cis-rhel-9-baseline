@@ -111,8 +111,12 @@ control 'C-4.3.4' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure nftables loopback traffic is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-040304r1_rule.'
+  applicable = !service('firewalld').running?
+  impact(applicable ? 0.5 : 0.0)
+  describe command(%q{nft list ruleset 2>/dev/null | grep -E 'iif "lo" accept'}) do
+    its('stdout') { should match(/\S/) }
   end
+  only_if('N/A unless nftables (standalone) is the active firewall (see 4.1.2)') { applicable }
 end
