@@ -52,8 +52,11 @@ control 'C-6.2.2.1.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure systemd-journal-upload is enabled and active' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-0602020103r1_rule.'
+  impact 0.5
+  describe 'systemd-journal-upload enabled+active (6.2.2.1.3)' do
+    skip 'operational: only applicable when forwarding to a remote journald collector.'
   end
 end

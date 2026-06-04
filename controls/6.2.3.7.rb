@@ -72,8 +72,10 @@ control 'C-6.2.3.7' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure rsyslog is not configured to receive logs from a remote client' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06020307r1_rule.'
+  impact 0.5
+  describe command(%q{grep -rhE '^\s*(module\(load="im(tcp|udp|relp)"|\$ModLoad\s+im(tcp|udp|relp)|input\(type="im(tcp|udp|relp)"|\$InputTCPServerRun|\$InputUDPServerRun)' /etc/rsyslog.conf /etc/rsyslog.d/ 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
   end
 end

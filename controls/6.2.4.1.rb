@@ -242,8 +242,10 @@ control 'C-6.2.4.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure access to all logfiles has been configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06020401r1_rule.'
+  impact 0.5
+  describe command(%q{find /var/log -type f -perm /0137 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
   end
 end

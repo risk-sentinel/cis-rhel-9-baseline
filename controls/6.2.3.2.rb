@@ -57,8 +57,11 @@ control 'C-6.2.3.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure rsyslog service is enabled and active' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06020302r1_rule.'
+  impact 0.5
+  describe service('rsyslog') do
+    it { should be_enabled }
+    it { should be_running }
   end
 end

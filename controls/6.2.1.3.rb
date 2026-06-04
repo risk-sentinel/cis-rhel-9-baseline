@@ -54,8 +54,10 @@ control 'C-6.2.1.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure journald log file rotation is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06020103r1_rule.'
+  impact 0.5
+  describe command(%q{grep -rhEi '^\s*(SystemMaxUse|RuntimeMaxUse|SystemMaxFileSize|SystemKeepFree)\s*=' /etc/systemd/journald.conf /etc/systemd/journald.conf.d/ 2>/dev/null}) do
+    its('stdout') { should match(/\S/) }
   end
 end

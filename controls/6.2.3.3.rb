@@ -68,8 +68,11 @@ control 'C-6.2.3.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure journald is configured to send logs to rsyslog' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06020303r1_rule.'
+  impact 0.5
+  describe 'journald forwards to rsyslog (6.2.3.3)' do
+    skip 'operational: applies only when rsyslog is the primary pipeline (mutually exclusive with 6.2.2.2 journald-only); consumer logging-architecture choice.'
   end
 end

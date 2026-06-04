@@ -74,8 +74,11 @@ control 'C-6.2.3.6' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure rsyslog is configured to send logs to a remote log host' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06020306r1_rule.'
+  impact 0.5
+  describe 'rsyslog sends to remote log host (6.2.3.6)' do
+    skip 'operational: the remote log-aggregation host is site-specific infrastructure.'
   end
 end

@@ -62,8 +62,11 @@ control 'C-6.2.3.5' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure rsyslog logging is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06020305r1_rule.'
+  impact 0.5
+  describe 'rsyslog logging configured (6.2.3.5)' do
+    skip 'operational: the facility/severity routing rules are site-specific; operator attests rules meet the org logging policy.'
   end
 end

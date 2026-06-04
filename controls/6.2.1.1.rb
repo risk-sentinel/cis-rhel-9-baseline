@@ -50,8 +50,11 @@ control 'C-6.2.1.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure journald service is enabled and active' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06020101r1_rule.'
+  impact 0.5
+  describe service('systemd-journald') do
+    it { should be_enabled }
+    it { should be_running }
   end
 end

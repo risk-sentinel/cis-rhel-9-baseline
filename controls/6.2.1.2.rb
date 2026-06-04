@@ -69,8 +69,11 @@ control 'C-6.2.1.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure journald log file access is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06020102r1_rule.'
+  impact 0.5
+  describe 'journald log-file access (6.2.1.2)' do
+    skip 'config/operational: journald file-access (systemd-tmpfiles/ACL) layering is deployment-specific; operator attests the journal directory perms config.'
   end
 end

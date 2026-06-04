@@ -70,8 +70,11 @@ control 'C-6.2.3.8' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure rsyslog logrotate is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-06020308r1_rule.'
+  impact 0.5
+  describe 'rsyslog logrotate configured (6.2.3.8)' do
+    skip 'operational: log-retention/rotation cadence is an org retention-policy decision.'
   end
 end
