@@ -79,8 +79,11 @@ control 'C-2.1.7' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure ftp server services are not in use' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-020107r1_rule.'
+  impact 0.5
+  describe service('vsftpd') do
+    it { should_not be_running }
+    it { should_not be_enabled }
   end
 end

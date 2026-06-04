@@ -63,8 +63,11 @@ control 'C-2.1.22' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure only approved services are listening on a network interface' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-020122r1_rule.'
+  impact 0.5
+  describe 'Approved listening services (2.1.22)' do
+    skip 'manual/operational: the set of approved network-listening services is consumer-specific. Operator reviews `ss -plntu` against the approved-services baseline.'
   end
 end

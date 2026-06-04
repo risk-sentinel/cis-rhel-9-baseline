@@ -75,8 +75,11 @@ control 'C-2.1.6' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure samba file server services are not in use' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-020106r1_rule.'
+  impact 0.5
+  describe service('smb') do
+    it { should_not be_running }
+    it { should_not be_enabled }
   end
 end

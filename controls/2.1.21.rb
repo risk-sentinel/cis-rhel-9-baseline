@@ -69,8 +69,10 @@ control 'C-2.1.21' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure mail transfer agents are configured for local-only mode' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-020121r1_rule.'
+  impact 0.5
+  describe command("ss -plntu | grep -E ':25\b'") do
+    its('stdout') { should_not match(/0\.0\.0\.0:25|\[::\]:25/) }
   end
 end
