@@ -80,8 +80,11 @@ control 'C-5.1.7' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'policy'
 
-  describe 'Ensure sshd access is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-050107r1_rule.'
+  impact 0.5
+  describe 'sshd access control (5.1.7)' do
+    skip 'manual/policy: the AllowUsers/AllowGroups/DenyUsers/DenyGroups access map is consumer-policy-specific. Operator attests the configured access directives against their access policy.'
   end
 end

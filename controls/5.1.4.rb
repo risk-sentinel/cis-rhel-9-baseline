@@ -119,8 +119,10 @@ control 'C-5.1.4' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure sshd Ciphers are configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-050104r1_rule.'
+  impact 0.5
+  describe sshd_config do
+    its('Ciphers') { should_not match(/(3des|cbc)/i) }
   end
 end

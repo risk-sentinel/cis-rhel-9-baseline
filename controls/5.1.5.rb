@@ -124,8 +124,10 @@ control 'C-5.1.5' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure sshd KexAlgorithms is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-050105r1_rule.'
+  impact 0.5
+  describe sshd_config do
+    its('KexAlgorithms') { should_not match(/(diffie-hellman-group1-sha1|diffie-hellman-group14-sha1|gss-)/i) }
   end
 end
