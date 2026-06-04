@@ -43,8 +43,12 @@ control 'C-1.8.10' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure XDMCP is not enabled' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-010810r1_rule.'
+  gdm = package('gdm').installed?
+  impact(gdm ? 0.5 : 0.0)
+  describe command(%q{grep -Pi -- '^\h*Enable\h*=\h*true' /etc/gdm/custom.conf 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
   end
+  only_if('N/A: GDM display manager not installed (see 1.8.1)') { gdm }
 end

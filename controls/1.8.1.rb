@@ -39,8 +39,10 @@ control 'C-1.8.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure GNOME Display Manager is removed' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-010801r1_rule.'
+  impact 0.5
+  describe package('gdm') do
+    it { should_not be_installed }
   end
 end

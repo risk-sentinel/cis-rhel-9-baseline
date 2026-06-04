@@ -202,8 +202,12 @@ control 'C-1.8.4' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure GDM screen locks when the user is idle' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-010804r1_rule.'
+  gdm = package('gdm').installed?
+  impact(gdm ? 0.5 : 0.0)
+  describe command(%q{grep -Prs -- '(idle-delay|lock-delay)=uint32 [0-9]' /etc/dconf/db/ 2>/dev/null}) do
+    its('stdout') { should match(/\S/) }
   end
+  only_if('N/A: GDM display manager not installed (see 1.8.1)') { gdm }
 end

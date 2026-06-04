@@ -137,8 +137,12 @@ control 'C-1.8.9' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure GDM autorun-never is not overridden' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-010809r1_rule.'
+  gdm = package('gdm').installed?
+  impact(gdm ? 0.5 : 0.0)
+  describe command(%q{grep -Prs -- 'autorun-never' /etc/dconf/db/*/locks/ 2>/dev/null}) do
+    its('stdout') { should match(/\S/) }
   end
+  only_if('N/A: GDM display manager not installed (see 1.8.1)') { gdm }
 end
