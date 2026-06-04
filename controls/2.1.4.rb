@@ -1,0 +1,84 @@
+# encoding: UTF-8
+
+control 'C-2.1.4' do
+  title 'Ensure dns server services are not in use'
+  desc  "
+    The Domain Name System (DNS) is a hierarchical naming system that maps names to IP addresses for computers, services and other resources connected to a network.
+
+    Unless a system is specifically designated to act as a DNS server, it is recommended that the package be removed to reduce the potential attack surface.
+  "
+  desc  'rationale', "
+    The Domain Name System (DNS) is a hierarchical naming system that maps names to IP addresses for computers, services and other resources connected to a network.
+
+    Unless a system is specifically designated to act as a DNS server, it is recommended that the package be removed to reduce the potential attack surface.
+  "
+  desc  'check', "
+    Run one of the following commands to verify `bind` is not installed:
+
+    ```
+    # rpm -q bind
+
+    package bind is not installed
+    ```
+
+    - OR - 
+
+    - IF - the package is required for dependencies:
+
+    Run the following command to verify `named.service` is not enabled:
+
+    ```
+    # systemctl is-enabled named.service 2>/dev/null | grep 'enabled'
+
+    Nothing should be returned
+    ```
+
+    Run the following command to verify the `named.service` is not active:
+
+    ```
+    # systemctl is-active named.service 2>/dev/null | grep '^active'
+
+    Nothing should be returned
+    ```
+
+    Note: If the package is required for a dependency
+     - Ensure the dependent package is approved by local site policy
+     - Ensure stopping and masking the service and/or socket meets local site policy
+  "
+  desc  'fix', "
+    Run the following commands to stop `named.service` and remove `bind` package:
+
+    ```
+    # systemctl stop named.service
+    # dnf remove bind
+    ```
+
+    - OR -
+
+    - IF - the `bind` package is required as a dependency:
+
+    Run the following commands to stop and mask `named.service`:
+
+    ```
+    # systemctl stop named.service
+    # systemctl mask named.service
+    ```
+  "
+  tag severity:              'medium'
+  tag nist:                  ['CM-7 a', 'SI-4 (11)']
+  tag cci:                   ['CCI-000381', 'CCI-002668']
+  tag cis_rid:               '2.1.4'
+  tag cis_number:            '2.1.4'
+  tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'
+  tag cis_rule_id:           'SV-020104r1_rule'
+  tag cis_version:           '2.0.0'
+  tag cis_level:             1
+  tag cis_scored:            true
+  tag implementation_status: 'implemented'
+
+  impact 0.5
+  describe service('named') do
+    it { should_not be_running }
+    it { should_not be_enabled }
+  end
+end
