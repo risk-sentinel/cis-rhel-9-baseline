@@ -83,8 +83,10 @@ control 'C-1.3.1.6' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure no unconfined services exist' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-01030106r1_rule.'
+  impact 0.5
+  describe command(%q{ps -eZ 2>/dev/null | grep unconfined_service_t | grep -v -E 'bash|ps |grep'}) do
+    its('stdout.strip') { should be_empty }
   end
 end
