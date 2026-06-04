@@ -47,8 +47,10 @@ control 'C-7.2.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure accounts in /etc/passwd use shadowed passwords' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-070201r1_rule.'
+  impact 0.5
+  describe command(%q{awk -F: '($2 != "x") {print $1}' /etc/passwd}) do
+    its('stdout') { should be_empty }
   end
 end

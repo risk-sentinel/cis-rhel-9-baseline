@@ -183,8 +183,10 @@ control 'C-7.2.9' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure local interactive user dot files access is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-070209r1_rule.'
+  impact 0.5
+  describe command(%q{awk -F: '($3>=1000 && $7!~/(nologin|false)/){print $6}' /etc/passwd | while read -r d; do find "$d" -maxdepth 1 -name '.*' -type f -perm /022 2>/dev/null; done}) do
+    its('stdout') { should be_empty }
   end
 end

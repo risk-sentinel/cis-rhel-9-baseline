@@ -45,8 +45,10 @@ control 'C-7.2.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure all groups in /etc/passwd exist in /etc/group' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-070203r1_rule.'
+  impact 0.5
+  describe command(%q{for g in $(cut -d: -f4 /etc/passwd | sort -u); do grep -q -- ":$g:" /etc/group || echo "missing-gid:$g"; done}) do
+    its('stdout') { should be_empty }
   end
 end

@@ -116,8 +116,10 @@ control 'C-7.2.8' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure local interactive user home directories are configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-070208r1_rule.'
+  impact 0.5
+  describe command(%q{awk -F: '($3>=1000 && $1!="nobody" && $7!~/(nologin|false)/){print $6}' /etc/passwd | while read -r d; do if [ -d "$d" ]; then p=$(stat -L -c '%a' "$d"); [ $((8#$p & 8#027)) -ne 0 ] && echo "$d:$p"; else echo "missing:$d"; fi; done}) do
+    its('stdout') { should be_empty }
   end
 end
