@@ -50,8 +50,13 @@ control 'C-1.7.4' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure access to /etc/motd is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-010704r1_rule.'
+  impact 0.5
+  describe file('/etc/motd') do
+    it { should exist }
+    it { should_not be_more_permissive_than('0644') }
+    its('owner') { should eq 'root' }
+    its('group') { should eq 'root' }
   end
 end
