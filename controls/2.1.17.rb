@@ -66,7 +66,6 @@ control 'C-2.1.17' do
     # systemctl mask squid.service
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']

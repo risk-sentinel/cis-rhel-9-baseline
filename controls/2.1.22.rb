@@ -52,7 +52,6 @@ control 'C-2.1.22' do
 
     Note: replace ` ` with the appropriate service name.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']

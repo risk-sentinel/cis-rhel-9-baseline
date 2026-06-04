@@ -147,7 +147,6 @@ control 'C-3.3.8' do
 
     Note: If these settings appear in a canonically later file, or later in the same file, these settings will be overwritten
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']

@@ -39,7 +39,6 @@ control 'C-1.2.2.1' do
     dnf needs-restarting -r
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SI-12', 'MP-6 a', 'SI-2 a']
   tag cci:                   ['CCI-001678', 'CCI-001028', 'CCI-001225']

@@ -34,7 +34,6 @@ control 'C-7.2.3' do
   desc  'fix', "
     Analyze the output of the Audit step above and perform the appropriate action to correct any discrepancies found.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

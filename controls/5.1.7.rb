@@ -69,7 +69,6 @@ control 'C-5.1.7' do
     - Be advised that these options are \"ANDed\" together. If both `AllowUsers` and `AllowGroups` are set, connections will be limited to the list of users that are also a member of an allowed group. It is recommended that only one be set for clarity and ease of administration.
     - It is easier to manage an allow list than a deny list. In a deny list, you could potentially add a user or group and forget to add it to the deny list.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-11 b']
   tag cci:                   ['CCI-000213', 'CCI-000056']

@@ -30,7 +30,6 @@ control 'C-7.2.4' do
   desc  'fix', "
     Based on the results of the audit script, establish unique UIDs and review all files owned by the shared UIDs to determine which UID they are supposed to belong to.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

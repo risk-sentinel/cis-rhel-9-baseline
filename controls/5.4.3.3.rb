@@ -162,7 +162,6 @@ control 'C-5.4.3.3' do
     - This method only applies to bash and shell. If other shells are supported on the system, it is recommended that their configuration files also are checked
     - If the `pam_umask.so` module is going to be used to set `umask`, ensure that it's not being overridden by another setting. Refer to the PAM_UMASK(8) man page for more information
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

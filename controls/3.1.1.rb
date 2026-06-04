@@ -53,7 +53,6 @@ control 'C-3.1.1' do
   desc  'fix', "
     Enable or disable IPv6 in accordance with system requirements and local site policy
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']

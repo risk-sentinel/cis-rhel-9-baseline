@@ -43,7 +43,6 @@ control 'C-4.3.2' do
     # systemctl is-enabled nftables.service | grep -q 'enabled' && nft add rule inet filter input ip protocol icmp ct state established accept
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-7 a', 'SC-18 (4)']
   tag cci:                   ['CCI-001097', 'CCI-002460']

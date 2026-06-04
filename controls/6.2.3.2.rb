@@ -46,7 +46,6 @@ control 'C-6.2.3.2' do
     # systemctl start rsyslog.service
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-2 f', 'IA-2 (2)', 'AU-2 a']
   tag cci:                   ['CCI-000011', 'CCI-000766', 'CCI-000123']

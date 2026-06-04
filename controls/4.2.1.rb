@@ -64,7 +64,6 @@ control 'C-4.2.1' do
     # firewall-cmd --runtime-to-permanent
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-7 a', 'SC-18 (4)']
   tag cci:                   ['CCI-001097', 'CCI-002460']

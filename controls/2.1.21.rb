@@ -58,7 +58,6 @@ control 'C-2.1.21' do
     - This remediation is designed around the postfix mail server.
     - Depending on your environment you may have an alternative MTA installed such as sendmail. If this is the case consult the documentation for your installed MTA to configure the recommended state.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']

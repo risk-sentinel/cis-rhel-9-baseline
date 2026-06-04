@@ -41,7 +41,6 @@ control 'C-1.1.2.6.2' do
     # mount -o remount /var/log
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

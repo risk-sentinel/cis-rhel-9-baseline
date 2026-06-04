@@ -193,7 +193,6 @@ control 'C-1.8.6' do
     # dnf remove gdm
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AU-3 a', 'MP-7 (a)']
   tag cci:                   ['CCI-000130', 'CCI-002581']

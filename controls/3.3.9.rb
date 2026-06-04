@@ -121,7 +121,6 @@ control 'C-3.3.9' do
 
     Note: If these settings appear in a canonically later file, or later in the same file, these settings will be overwritten
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-2 f', 'IA-2 (2)', 'AU-3 a']
   tag cci:                   ['CCI-000011', 'CCI-000766', 'CCI-000130']

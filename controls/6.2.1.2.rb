@@ -58,7 +58,6 @@ control 'C-6.2.1.2' do
   desc  'fix', "
     If the default configuration is not appropriate for the site specific requirements, copy `/usr/lib/tmpfiles.d/systemd.conf` to `/etc/tmpfiles.d/systemd.conf` and modify as required. Requirements is either `0640` or site policy if that is less restrictive.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

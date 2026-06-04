@@ -28,7 +28,6 @@ control 'C-2.2.4' do
     # dnf remove telnet
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-7 a']
   tag cci:                   ['CCI-000381']

@@ -113,7 +113,6 @@ control 'C-5.1.5' do
     KexAlgorithms -diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-8', 'AC-8 a']
   tag cci:                   ['CCI-002418', 'CCI-000051']

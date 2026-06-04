@@ -108,7 +108,6 @@ control 'C-5.1.4' do
     Ciphers -3des-cbc,aes128-cbc,aes192-cbc,aes256-cbc,chacha20-poly1305@openssh.com
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-8', 'AC-8 a']
   tag cci:                   ['CCI-002418', 'CCI-000051']

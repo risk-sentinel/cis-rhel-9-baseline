@@ -46,7 +46,6 @@ control 'C-5.3.1.3' do
     # dnf upgrade libpwquality
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

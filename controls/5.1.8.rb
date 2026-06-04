@@ -64,7 +64,6 @@ control 'C-5.1.8' do
     # printf '%s\\n' \"Authorized users only. All activity may be monitored and reported.\" > \"$(sshd -T | awk '$1 == \"banner\" {print $2}')\"
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

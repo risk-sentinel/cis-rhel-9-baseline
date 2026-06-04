@@ -29,7 +29,6 @@ control 'C-7.1.7' do
     # chmod 0000 /etc/gshadow
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'CM-8 a 1']
   tag cci:                   ['CCI-000213', 'CCI-000389']

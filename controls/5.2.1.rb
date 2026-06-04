@@ -37,7 +37,6 @@ control 'C-5.2.1' do
     # dnf install sudo
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-11 b', 'AC-2 c']
   tag cci:                   ['CCI-000056', 'CCI-002113']

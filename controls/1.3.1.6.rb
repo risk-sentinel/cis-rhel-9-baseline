@@ -72,7 +72,6 @@ control 'C-1.3.1.6' do
     # chcon -t se service_allowlist_policy /path/to/service_binary
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'SI-4 (11)']
   tag cci:                   ['CCI-000213', 'CCI-002668']

@@ -43,7 +43,6 @@ control 'C-5.4.2.7' do
     }
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

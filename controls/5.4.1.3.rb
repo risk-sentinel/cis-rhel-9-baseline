@@ -57,7 +57,6 @@ control 'C-5.4.1.3' do
     # awk -F: '($2~/^\\$.+\\$/) {if($6 < 7)system (\"chage --warndays 7 \" $1)}' /etc/shadow
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 a', 'SC-7 a']
   tag cci:                   ['CCI-000364', 'CCI-001097']

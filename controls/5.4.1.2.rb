@@ -57,7 +57,6 @@ control 'C-5.4.1.2' do
     # awk -F: '($2~/^\\$.+\\$/) {if($4 < 1)system (\"chage --mindays 1 \" $1)}' /etc/shadow
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-7 a', 'IA-5 (1) (e)']
   tag cci:                   ['CCI-001097', 'CCI-000200']

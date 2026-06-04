@@ -29,7 +29,6 @@ control 'C-7.1.6' do
     # chmod 0000 /etc/shadow-
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

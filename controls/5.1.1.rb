@@ -73,7 +73,6 @@ control 'C-5.1.1' do
 
     - IF - other locations are listed in an `Include` statement, `*.conf` files in these locations access should also be modified.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

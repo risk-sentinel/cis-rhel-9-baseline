@@ -152,7 +152,6 @@ control 'C-6.1.3' do
       - If the executable file exits with status greater than zero or writes to stderr aide stops with an error.
       - For security reasons DIRECTORY and each executable config file must be owned by the current user and must not be  group or world-writable.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

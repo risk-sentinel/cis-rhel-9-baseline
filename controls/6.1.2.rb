@@ -83,7 +83,6 @@ control 'C-6.1.2' do
     # systemctl --now enable aidecheck.timer
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AU-2 a', 'SC-12 (3)']
   tag cci:                   ['CCI-000123', 'CCI-002447']

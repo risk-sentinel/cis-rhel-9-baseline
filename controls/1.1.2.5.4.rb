@@ -41,7 +41,6 @@ control 'C-1.1.2.5.4' do
     # mount -o remount /var/tmp
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

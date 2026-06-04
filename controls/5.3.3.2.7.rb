@@ -53,7 +53,6 @@ control 'C-5.3.3.2.7' do
     printf '\\n%s\\n' \"enforce_for_root\" >> /etc/security/pwquality.conf.d/50-pwroot.conf
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-7 a', 'IA-5 (1) (e)']
   tag cci:                   ['CCI-001097', 'CCI-000200']

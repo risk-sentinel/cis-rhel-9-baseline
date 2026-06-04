@@ -79,7 +79,6 @@ control 'C-6.3.3.12' do
     # if [[ $(auditctl -s | grep \"enabled\") =~ \"2\" ]]; then printf \"Reboot required to load rules\\n\"; fi
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b', 'AU-3 a', 'SA-11 e']
   tag cci:                   ['CCI-000366', 'CCI-000130', 'CCI-003178']

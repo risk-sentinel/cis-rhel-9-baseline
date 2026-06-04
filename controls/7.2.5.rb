@@ -30,7 +30,6 @@ control 'C-7.2.5' do
   desc  'fix', "
     Based on the results of the audit script, establish unique GIDs and review all files owned by the shared GID to determine which group they are supposed to belong to.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

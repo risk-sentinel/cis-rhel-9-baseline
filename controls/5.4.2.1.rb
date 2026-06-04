@@ -31,7 +31,6 @@ control 'C-5.4.2.1' do
 
     Modify any users other than `root` with UID `0` and assign them a new UID.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

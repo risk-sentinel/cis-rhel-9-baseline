@@ -37,7 +37,6 @@ control 'C-5.3.3.3.2' do
     enforce_for_root
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-7 a', 'IA-5 (1) (e)']
   tag cci:                   ['CCI-001097', 'CCI-000200']

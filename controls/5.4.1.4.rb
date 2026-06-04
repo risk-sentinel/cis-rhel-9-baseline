@@ -72,7 +72,6 @@ control 'C-5.4.1.4' do
     - If it is determined that the password algorithm being used is not `sha512` or `yescrypt`, once it is changed, it is recommended that all group passwords be updated to use the stronger hashing algorithm.
     - It is recommended that the chosen hashing algorithm is consistent across `/etc/login.defs` and the PAM configuration
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-28', 'CM-8 a 1']
   tag cci:                   ['CCI-001199', 'CCI-000389']

@@ -69,7 +69,6 @@ control 'C-5.3.2.5' do
 
     Note: Arguments following `pam_unix.so` may be different than the example output
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

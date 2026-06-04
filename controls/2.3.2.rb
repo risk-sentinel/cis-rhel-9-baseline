@@ -30,7 +30,6 @@ control 'C-2.3.2' do
     ```
     server ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-2 i 1', 'AU-8 a']
   tag cci:                   ['CCI-002126', 'CCI-000159']

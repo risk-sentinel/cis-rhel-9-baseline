@@ -74,7 +74,6 @@ control 'C-6.3.2.3' do
     disk_error_action = halt
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AU-2 a', 'AU-4']
   tag cci:                   ['CCI-000123', 'CCI-001848']

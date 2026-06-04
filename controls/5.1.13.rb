@@ -40,7 +40,6 @@ control 'C-5.1.13' do
 
     Note: First occurrence of a option takes precedence, `Match` set statements withstanding. If `Include` locations are enabled, used, and order of precedence is understood in your environment, the entry may be created in a file in `Include` location.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-7 a', 'IA-5 (1) (e)']
   tag cci:                   ['CCI-001097', 'CCI-000200']

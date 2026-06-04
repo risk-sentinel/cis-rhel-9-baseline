@@ -79,7 +79,6 @@ control 'C-5.3.2.2' do
     # authselect apply-changes
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 a']
   tag cci:                   ['CCI-000364', 'CCI-000363']

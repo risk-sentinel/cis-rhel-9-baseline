@@ -59,7 +59,6 @@ control 'C-6.2.3.8' do
         endscript	
     }
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-2 (2)', 'AU-4']
   tag cci:                   ['CCI-001682', 'CCI-001848']

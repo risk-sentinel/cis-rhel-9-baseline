@@ -60,7 +60,6 @@ control 'C-6.2.2.2' do
     # systemctl reload-or-restart systemd-journald
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['IA-2 (2)', 'AU-2 a']
   tag cci:                   ['CCI-000766', 'CCI-000123']

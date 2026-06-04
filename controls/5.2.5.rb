@@ -34,7 +34,6 @@ control 'C-5.2.5' do
 
     Remove any occurrences of `!authenticate` tags in the file(s).
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-11 b', 'AC-2 c']
   tag cci:                   ['CCI-000056', 'CCI-002113']

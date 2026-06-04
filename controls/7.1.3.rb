@@ -29,7 +29,6 @@ control 'C-7.1.3' do
     # chown root:root /etc/group
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

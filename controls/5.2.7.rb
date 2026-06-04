@@ -38,7 +38,6 @@ control 'C-5.2.7' do
     auth required pam_wheel.so use_uid group=sugroup
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-2 a']
   tag cci:                   ['CCI-000213', 'CCI-002110']

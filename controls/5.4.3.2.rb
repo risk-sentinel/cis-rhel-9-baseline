@@ -116,7 +116,6 @@ control 'C-5.4.3.2' do
     readonly TMOUT=900 ; export TMOUT
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-11 b', 'SA-11 e']
   tag cci:                   ['CCI-000056', 'CCI-003178']

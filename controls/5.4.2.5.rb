@@ -60,7 +60,6 @@ control 'C-5.4.2.5' do
     - Non `root` owned directories
     - Directories that less restrictive than mode `0755`
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

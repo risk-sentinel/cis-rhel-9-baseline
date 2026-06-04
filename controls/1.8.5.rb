@@ -165,7 +165,6 @@ control 'C-1.8.5' do
     ```
     Note: Users must log out and back in again before the system-wide settings take effect.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-11 b', 'SA-11 e']
   tag cci:                   ['CCI-000056', 'CCI-003178']

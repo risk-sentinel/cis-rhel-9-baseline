@@ -45,7 +45,6 @@ control 'C-6.1.1' do
     # mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AU-2 a', 'SC-12 (3)']
   tag cci:                   ['CCI-000123', 'CCI-002447']

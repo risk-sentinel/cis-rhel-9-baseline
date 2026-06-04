@@ -34,7 +34,6 @@ control 'C-1.1.2.6.1' do
 
     For systems that were previously installed, create a new partition and configure `/etc/fstab`  as appropriate.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-2 (2)', 'AU-4']
   tag cci:                   ['CCI-001682', 'CCI-001848']

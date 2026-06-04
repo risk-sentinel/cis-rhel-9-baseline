@@ -27,7 +27,6 @@ control 'C-7.2.2' do
 
     Also, check to see if the account is logged in and investigate what it is being used for to determine if it needs to be forced off.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-7 a', 'IA-5 (1) (e)']
   tag cci:                   ['CCI-001097', 'CCI-000200']

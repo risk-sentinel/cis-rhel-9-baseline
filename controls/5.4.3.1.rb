@@ -40,7 +40,6 @@ control 'C-5.4.3.1' do
   desc  'fix', "
     Edit `/etc/shells` and remove any lines that include `nologin`
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

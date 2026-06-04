@@ -68,7 +68,6 @@ control 'C-2.1.13' do
     # systemctl mask rsyncd.socket rsyncd.service
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']

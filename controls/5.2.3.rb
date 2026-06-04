@@ -43,7 +43,6 @@ control 'C-5.2.3' do
     - Be aware that because the sorting is lexical, not numeric, `/etc/sudoers.d/1_whoops` would be loaded after `/etc/sudoers.d/10_second`. 
     - Using a consistent number of leading zeroes in the file names can be used to avoid such problems.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['IA-2 (2)', 'AU-3 a']
   tag cci:                   ['CCI-000766', 'CCI-000130']

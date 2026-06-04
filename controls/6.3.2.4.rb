@@ -102,7 +102,6 @@ control 'C-6.3.2.4' do
 
     Note: A Mail Transfer Agent (MTA) must be installed and configured properly to set `space_left_action = email`
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AU-2 a', 'AU-4']
   tag cci:                   ['CCI-000123', 'CCI-001848']

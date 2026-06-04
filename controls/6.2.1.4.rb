@@ -42,7 +42,6 @@ control 'C-6.2.1.4' do
     3. Configure only ONE either `journald` - OR - `rsyslog` and complete the recommendations in that subsection
     4. Return to this recommendation to ensure only one logging system is in use
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

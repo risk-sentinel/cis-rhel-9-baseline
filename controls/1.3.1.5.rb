@@ -60,7 +60,6 @@ control 'C-1.3.1.5' do
     SELINUX=enforcing
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

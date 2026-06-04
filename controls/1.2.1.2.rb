@@ -47,7 +47,6 @@ control 'C-1.2.1.2' do
     # find /etc/yum.repos.d/ -name \"*.repo\" -exec echo \"Checking:\" {} \\; -exec sed -i 's/^gpgcheck\\s*=\\s*.*/gpgcheck=1/' {} \\;
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SI-12', 'SI-2 a']
   tag cci:                   ['CCI-001678', 'CCI-001225']

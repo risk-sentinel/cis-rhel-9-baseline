@@ -34,7 +34,6 @@ control 'C-1.6.2' do
     # systemctl reload sshd
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-8', 'AC-8 a']
   tag cci:                   ['CCI-002418', 'CCI-000051']

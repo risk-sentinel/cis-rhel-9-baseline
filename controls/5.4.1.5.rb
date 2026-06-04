@@ -62,7 +62,6 @@ control 'C-5.4.1.5' do
     # awk -F: '($2~/^\\$.+\\$/) {if($7 > 45 || $7 < 0)system (\"chage --inactive 45 \" $1)}' /etc/shadow
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['SC-7 a', 'IA-5 (1) (e)']
   tag cci:                   ['CCI-001097', 'CCI-000200']

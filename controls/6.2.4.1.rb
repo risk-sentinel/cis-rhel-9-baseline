@@ -231,7 +231,6 @@ control 'C-6.2.4.1' do
 
     If there are services that log to other locations, ensure that those log files have the appropriate access configured.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

@@ -35,7 +35,6 @@ control 'C-2.3.3' do
     # systemctl reload-or-restart chronyd.service
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

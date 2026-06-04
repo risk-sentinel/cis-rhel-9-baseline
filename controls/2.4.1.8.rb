@@ -103,7 +103,6 @@ control 'C-2.4.1.8' do
     # [ -e \"/etc/cron.deny\" ] && chmod u-x,g-wx,o-rwx /etc/cron.deny
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

@@ -95,7 +95,6 @@ control 'C-6.3.3.6' do
 
     If there are any special mount points that are not visible by default from just scanning `/`, change the `PARTITION` variable to the appropriate partition and re-run the remediation.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-2 f', 'AU-3 a']
   tag cci:                   ['CCI-000011', 'CCI-000130']

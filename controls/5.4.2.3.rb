@@ -30,7 +30,6 @@ control 'C-5.4.2.3' do
 
     Remove any groups other than the `root` group with GID 0 or assign them a new GID if appropriate.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

@@ -50,7 +50,6 @@ control 'C-6.3.4.3' do
     # [ -f /etc/audit/auditd.conf ] && find \"$(dirname $(awk -F \"=\" '/^\\s*log_file/ {print $2}' /etc/audit/auditd.conf | xargs))\" -type f ! -user root -exec chown root {} +
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']

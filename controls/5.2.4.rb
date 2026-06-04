@@ -34,7 +34,6 @@ control 'C-5.2.4' do
 
     Remove any line with occurrences of `NOPASSWD` tags in the file.
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-11 b', 'AC-2 c']
   tag cci:                   ['CCI-000056', 'CCI-002113']

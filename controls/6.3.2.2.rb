@@ -28,7 +28,6 @@ control 'C-6.3.2.2' do
     max_log_file_action = keep_logs
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-2 (2)', 'AU-4']
   tag cci:                   ['CCI-001682', 'CCI-001848']

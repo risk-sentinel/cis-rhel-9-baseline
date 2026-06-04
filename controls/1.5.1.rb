@@ -98,7 +98,6 @@ control 'C-1.5.1' do
 
     Note: If these settings appear in a canonically later file, or later in the same file, these settings will be overwritten
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AU-4', 'SI-16']
   tag cci:                   ['CCI-001848', 'CCI-002823']

@@ -56,6 +56,17 @@ control 'C-6.3.1.2' do
 
     Note: Other parameters may also be listed
   "
+  tag severity:              'medium'
+  tag nist:                  ['AC-2 f', 'AU-2 a']
+  tag cci:                   ['CCI-000011', 'CCI-000123']
+  tag cis_rid:               '6.3.1.2'
+  tag cis_number:            '6.3.1.2'
+  tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'
+  tag cis_rule_id:           'SV-06030102r1_rule'
+  tag cis_version:           '2.0.0'
+  tag cis_level:             1
+  tag cis_scored:            true
+  tag implementation_status: 'implemented'
   impact 0.5
   describe command(%q{grubby --info=ALL 2>/dev/null | grep '^args=' | grep -v 'audit=1'}) do
     its('stdout.strip') { should be_empty }

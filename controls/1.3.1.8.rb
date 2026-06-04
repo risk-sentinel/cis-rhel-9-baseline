@@ -30,7 +30,6 @@ control 'C-1.3.1.8' do
     # dnf remove setroubleshoot
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-7 a', 'AC-8 a']
   tag cci:                   ['CCI-000381', 'CCI-000051']

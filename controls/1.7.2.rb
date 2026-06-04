@@ -38,7 +38,6 @@ control 'C-1.7.2' do
     # echo \"Authorized users only. All activity may be monitored and reported.\" > /etc/issue
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

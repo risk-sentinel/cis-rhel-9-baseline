@@ -63,7 +63,6 @@ control 'C-2.1.15' do
     # systemctl mask telnet.socket
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']

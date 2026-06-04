@@ -86,7 +86,6 @@ control 'C-1.7.1' do
     }
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

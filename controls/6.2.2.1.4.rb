@@ -48,7 +48,6 @@ control 'C-6.2.2.1.4' do
     # systemctl mask systemd-journal-remote.socket systemd-journal-remote.service
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']

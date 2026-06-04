@@ -41,7 +41,6 @@ control 'C-2.4.1.1' do
     # systemctl --now enable \"$(systemctl list-unit-files | awk '$1~/^crond?\\.service/{print $1}')\"
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']

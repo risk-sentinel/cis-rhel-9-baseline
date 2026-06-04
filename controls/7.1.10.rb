@@ -41,7 +41,6 @@ control 'C-7.1.10' do
     # [ -e \"/etc/security/opasswd.old\" ] && chown root:root /etc/security/opasswd.old
     ```
   "
-  impact 0.5
   tag severity:              'medium'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']
