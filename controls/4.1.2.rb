@@ -140,8 +140,11 @@ control 'C-4.1.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure a single firewall configuration utility is in use' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-040102r1_rule.'
+  impact 0.5
+  describe 'single firewall utility in use (4.1.2)' do
+    skip 'operational: the firewall front-end (firewalld vs standalone nftables vs iptables) is a consumer architecture decision; §4.2 (firewalld) and §4.3 (nftables) are mutually-exclusive and each guarded N/A on the non-chosen path.'
   end
 end
