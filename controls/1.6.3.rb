@@ -86,8 +86,13 @@ control 'C-1.6.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure system wide crypto policy disables sha1 hash and signature support' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-010603r1_rule.'
+  impact 0.5
+  describe command(%q{awk -F= '($1~/(hash|sign)/ && $2~/SHA1/ && $2!~/^\s*\-\s*([^#\n\r]+)?SHA1/){print}' /etc/crypto-policies/state/CURRENT.pol 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
+  end
+  describe command(%q{grep -Psi -- '^\h*sha1_in_certs\h*=\h*' /etc/crypto-policies/state/CURRENT.pol 2>/dev/null}) do
+    its('stdout') { should match(/=\s*0/) }
   end
 end

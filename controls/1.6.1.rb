@@ -64,8 +64,10 @@ control 'C-1.6.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure system wide crypto policy is not set to legacy' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-010601r1_rule.'
+  impact 0.5
+  describe command(%q{update-crypto-policies --show 2>/dev/null}) do
+    its('stdout') { should_not match(/LEGACY/) }
   end
 end

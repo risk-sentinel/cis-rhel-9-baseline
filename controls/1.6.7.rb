@@ -89,8 +89,10 @@ control 'C-1.6.7' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure system wide crypto policy disables EtM for ssh' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-010607r1_rule.'
+  impact 0.5
+  describe command(%q{grep -Psi -- '^\h*etm\b' /etc/crypto-policies/state/CURRENT.pol 2>/dev/null}) do
+    its('stdout') { should match(/DISABLE_ETM/) }
   end
 end

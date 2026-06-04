@@ -78,8 +78,10 @@ control 'C-1.6.4' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure system wide crypto policy disables macs less than 128 bits' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-010604r1_rule.'
+  impact 0.5
+  describe command(%q{grep -Pi -- '^\h*mac\h*=\h*([^#\n\r]+)?-64\b' /etc/crypto-policies/state/CURRENT.pol 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
   end
 end

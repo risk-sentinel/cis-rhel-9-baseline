@@ -45,8 +45,10 @@ control 'C-1.6.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure system wide crypto policy is not set in sshd configuration' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-010602r1_rule.'
+  impact 0.5
+  describe command(%q{grep -Pi -- '^\h*CRYPTO_POLICY\h*=' /etc/sysconfig/sshd 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
   end
 end
