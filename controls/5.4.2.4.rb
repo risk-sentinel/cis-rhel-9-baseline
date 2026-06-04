@@ -55,8 +55,11 @@ control 'C-5.4.2.4' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure root account access is controlled' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-05040204r1_rule.'
+  impact 0.5
+  describe 'root account access controlled (5.4.2.4)' do
+    skip 'operational: root-access governance (console/break-glass, locked direct login, MFA on bastion) is an org IAM-policy decision; verified surface is covered by 5.2.7 (su) + 5.1.20 (PermitRootLogin).'
   end
 end

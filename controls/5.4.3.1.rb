@@ -51,8 +51,10 @@ control 'C-5.4.3.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure nologin is not listed in /etc/shells' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-05040301r1_rule.'
+  impact 0.5
+  describe command(%q{grep -P -- 'nologin' /etc/shells 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
   end
 end

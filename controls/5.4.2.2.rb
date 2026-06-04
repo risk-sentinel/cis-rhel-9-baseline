@@ -49,8 +49,10 @@ control 'C-5.4.2.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure root is the only GID 0 account' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-05040202r1_rule.'
+  impact 0.5
+  describe command(%q{awk -F: '($4==0 && $1!="root"){print $1}' /etc/passwd}) do
+    its('stdout.strip') { should be_empty }
   end
 end

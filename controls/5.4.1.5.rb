@@ -73,8 +73,10 @@ control 'C-5.4.1.5' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure inactive password lock is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-05040105r1_rule.'
+  impact 0.5
+  describe command(%q{useradd -D 2>/dev/null}) do
+    its('stdout') { should match(/INACTIVE=(30|[12]?[0-9])\b/) }
   end
 end

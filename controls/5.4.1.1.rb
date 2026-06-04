@@ -88,8 +88,10 @@ control 'C-5.4.1.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure password expiration is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-05040101r1_rule.'
+  impact 0.5
+  describe login_defs do
+    its('PASS_MAX_DAYS') { should cmp <= 365 }
   end
 end

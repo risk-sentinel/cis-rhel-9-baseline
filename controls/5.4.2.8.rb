@@ -58,8 +58,10 @@ control 'C-5.4.2.8' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure accounts without a valid login shell are locked' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-05040208r1_rule.'
+  impact 0.5
+  describe command(%q{for u in $(awk -F: '($7~/(nologin|false)$/){print $1}' /etc/passwd); do s=$(awk -F: -v u="$u" '($1==u){print $2}' /etc/shadow); f=${s:0:1}; [ "$f" != "!" ] && [ "$f" != "*" ] && echo "$u"; done}) do
+    its('stdout.strip') { should be_empty }
   end
 end

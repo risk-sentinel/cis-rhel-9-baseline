@@ -54,8 +54,10 @@ control 'C-5.4.2.7' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure system accounts do not have a valid login shell' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-05040207r1_rule.'
+  impact 0.5
+  describe command(%q{awk -F: '($3<1000 && $1!="root" && $7!~/(nologin|false)$/ && $1!~/^(sync|shutdown|halt)$/){print $1}' /etc/passwd}) do
+    its('stdout.strip') { should be_empty }
   end
 end

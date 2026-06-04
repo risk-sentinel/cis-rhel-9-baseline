@@ -68,8 +68,10 @@ control 'C-5.4.1.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure minimum password days is configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-05040102r1_rule.'
+  impact 0.5
+  describe login_defs do
+    its('PASS_MIN_DAYS') { should cmp >= 1 }
   end
 end
