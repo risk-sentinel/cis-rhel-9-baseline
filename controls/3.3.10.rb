@@ -129,8 +129,10 @@ control 'C-3.3.10' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure tcp syn cookies is enabled' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-030310r1_rule.'
+  impact 0.5
+  describe kernel_parameter('net.ipv4.tcp_syncookies') do
+    its('value') { should eq 1 }
   end
 end

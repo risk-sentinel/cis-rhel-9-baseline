@@ -129,8 +129,10 @@ control 'C-3.3.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure bogus icmp responses are ignored' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-030303r1_rule.'
+  impact 0.5
+  describe kernel_parameter('net.ipv4.icmp_ignore_bogus_error_responses') do
+    its('value') { should eq 1 }
   end
 end
