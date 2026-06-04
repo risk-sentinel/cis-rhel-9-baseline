@@ -70,8 +70,10 @@ control 'C-5.3.3.2.6' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure password dictionary check is enabled' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-0503030206r1_rule.'
+  impact 0.5
+  describe command(%q{grep -rP -- '^\h*dictcheck\h*=\h*0\b' /etc/security/pwquality.conf /etc/security/pwquality.conf.d/ 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
   end
 end

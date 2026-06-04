@@ -87,8 +87,10 @@ control 'C-5.3.3.4.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure pam_unix does not include remember' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-0503030402r1_rule.'
+  impact 0.5
+  describe command(%q{grep -rP -- 'pam_unix\.so[^\n]*\bremember=' /etc/pam.d/system-auth /etc/pam.d/password-auth 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
   end
 end

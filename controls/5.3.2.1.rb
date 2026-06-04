@@ -121,8 +121,10 @@ control 'C-5.3.2.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure active authselect profile includes pam modules' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-05030201r1_rule.'
+  impact 0.5
+  describe command(%q{authselect current 2>/dev/null}) do
+    its('stdout') { should match(%r{Profile ID|custom/}) }
   end
 end

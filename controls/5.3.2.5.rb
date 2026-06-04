@@ -80,8 +80,10 @@ control 'C-5.3.2.5' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure pam_unix module is enabled' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-05030205r1_rule.'
+  impact 0.5
+  describe command(%q{grep -rP -- 'pam_unix\.so' /etc/pam.d/system-auth /etc/pam.d/password-auth 2>/dev/null}) do
+    its('stdout') { should match(/\S/) }
   end
 end
