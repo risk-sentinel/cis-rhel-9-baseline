@@ -52,8 +52,11 @@ control 'C-1.1.2.4.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure nosuid option set on /var partition' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-0101020403r1_rule.'
+  impact 0.5
+  describe mount('/var') do
+    it { should be_mounted }
+    its('options') { should include 'nosuid' }
   end
 end

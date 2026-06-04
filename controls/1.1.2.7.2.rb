@@ -52,8 +52,11 @@ control 'C-1.1.2.7.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure nodev option set on /var/log/audit partition' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-0101020702r1_rule.'
+  impact 0.5
+  describe mount('/var/log/audit') do
+    it { should be_mounted }
+    its('options') { should include 'nodev' }
   end
 end

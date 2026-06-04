@@ -187,8 +187,11 @@ control 'C-1.1.1.9' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure unused filesystems kernel modules are not available' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-01010109r1_rule.'
+  impact 0.5
+  describe 'Unused filesystem kernel modules (1.1.1.9)' do
+    skip 'manual/periodic-review: catch-all for filesystem modules beyond the explicitly-checked set (1.1.1.1-8). Operator reviews `lsmod`/modprobe deny-lists for any other unused fs modules; no fixed allowlist to assert.'
   end
 end
