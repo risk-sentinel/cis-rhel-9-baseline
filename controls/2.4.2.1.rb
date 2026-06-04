@@ -90,8 +90,13 @@ control 'C-2.4.2.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure at is restricted to authorized users' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-02040201r1_rule.'
+  impact 0.5
+  describe file('/etc/at.allow') do
+    it { should exist }
+    its('mode') { should cmp '0640' }
+    its('owner') { should eq 'root' }
+    its('group') { should eq 'root' }
   end
 end

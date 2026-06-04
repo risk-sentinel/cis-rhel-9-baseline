@@ -114,8 +114,13 @@ control 'C-2.4.1.8' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure crontab is restricted to authorized users' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-02040108r1_rule.'
+  impact 0.5
+  describe file('/etc/cron.allow') do
+    it { should exist }
+    its('mode') { should cmp '0640' }
+    its('owner') { should eq 'root' }
+    its('group') { should eq 'root' }
   end
 end
