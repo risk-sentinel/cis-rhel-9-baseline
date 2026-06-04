@@ -115,8 +115,13 @@ control 'C-7.1.11' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure world writable files and directories are secured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-070111r1_rule.'
+  impact 0.5
+  describe command(%q{find / -xdev -type f -perm -0002 2>/dev/null}) do
+    its('stdout') { should be_empty }
+  end
+  describe command(%q{find / -xdev -type d -perm -0002 ! -perm -1000 2>/dev/null}) do
+    its('stdout') { should be_empty }
   end
 end

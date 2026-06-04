@@ -52,8 +52,13 @@ control 'C-7.1.10' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure permissions on /etc/security/opasswd are configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-070110r1_rule.'
+  impact 0.5
+  describe file('/etc/security/opasswd') do
+    it { should exist }
+    it { should_not be_more_permissive_than('0600') }
+    its('owner') { should eq 'root' }
+    its('group') { should eq 'root' }
   end
 end

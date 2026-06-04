@@ -68,8 +68,11 @@ control 'C-7.1.13' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure SUID and SGID files are reviewed' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-070113r1_rule.'
+  impact 0.5
+  describe 'SUID/SGID file review (7.1.13)' do
+    skip 'manual/operational: the inventory of SUID/SGID binaries is host-specific. Operator reviews `find / -xdev -type f \\( -perm -4000 -o -perm -2000 \\)` against the approved baseline.'
   end
 end

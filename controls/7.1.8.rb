@@ -40,8 +40,13 @@ control 'C-7.1.8' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure permissions on /etc/gshadow- are configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-070108r1_rule.'
+  impact 0.5
+  describe file('/etc/gshadow-') do
+    it { should exist }
+    it { should_not be_more_permissive_than('0000') }
+    its('owner') { should eq 'root' }
+    its('group') { should be_in %w(root shadow) }
   end
 end

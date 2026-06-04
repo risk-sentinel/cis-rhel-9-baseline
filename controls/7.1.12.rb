@@ -68,8 +68,10 @@ control 'C-7.1.12' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure no files or directories without an owner and a group exist' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-070112r1_rule.'
+  impact 0.5
+  describe command(%q{find / -xdev \( -nouser -o -nogroup \) 2>/dev/null}) do
+    its('stdout') { should be_empty }
   end
 end
