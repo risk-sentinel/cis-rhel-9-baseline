@@ -163,8 +163,10 @@ control 'C-6.1.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure cryptographic mechanisms are used to protect the integrity of audit tools' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-060103r1_rule.'
+  impact 0.5
+  describe command(%q{grep -rhE 'auditctl|auditd|ausearch|aureport|autrace|augenrules|rsyslogd' /etc/aide.conf /etc/aide.conf.d/ 2>/dev/null}) do
+    its('stdout') { should match(/\S/) }
   end
 end

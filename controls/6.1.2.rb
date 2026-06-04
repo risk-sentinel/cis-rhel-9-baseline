@@ -94,8 +94,15 @@ control 'C-6.1.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure filesystem integrity is regularly checked' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-060102r1_rule.'
+  impact 0.5
+  describe.one do
+    describe service('dailyaidecheck.timer') do
+      it { should be_enabled }
+    end
+    describe command(%q{grep -rh aide /etc/cron.d /etc/crontab /etc/cron.daily /var/spool/cron 2>/dev/null}) do
+      its('stdout') { should match(/aide/) }
+    end
   end
 end
