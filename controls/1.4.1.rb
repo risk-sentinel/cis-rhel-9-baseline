@@ -51,8 +51,10 @@ control 'C-1.4.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure bootloader password is set' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-010401r1_rule.'
+  impact 0.5
+  describe command(%q{grep -P -- '^\h*(set\h+superusers|GRUB2_PASSWORD)' /boot/grub2/user.cfg /boot/grub2/grub.cfg 2>/dev/null}) do
+    its('stdout') { should match(/\S/) }
   end
 end
