@@ -50,8 +50,11 @@ control 'C-1.2.2.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure updates, patches, and additional security software are installed' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-01020201r1_rule.'
+  impact 0.5
+  describe 'updates/patches installed (1.2.2.1)' do
+    skip 'operational: patch currency is governed by the org patch-management cadence; point-in-time `dnf check-update` is not a stable control assertion.'
   end
 end

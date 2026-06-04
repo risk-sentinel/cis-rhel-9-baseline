@@ -50,8 +50,11 @@ control 'C-1.2.1.4' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure package manager repositories are configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-01020104r1_rule.'
+  impact 0.5
+  describe 'package manager repositories configured (1.2.1.4)' do
+    skip 'operational: the set of enabled yum/dnf repositories is site-specific (internal mirrors, satellite); operator attests repos point to authorized sources.'
   end
 end

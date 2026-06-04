@@ -58,8 +58,13 @@ control 'C-1.2.1.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure gpgcheck is globally activated' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-01020102r1_rule.'
+  impact 0.5
+  describe command(%q{grep -P -- '^\h*gpgcheck\h*=\h*1\b' /etc/dnf/dnf.conf}) do
+    its('stdout') { should match(/\S/) }
+  end
+  describe command(%q{grep -rhP -- '^\h*gpgcheck\h*=' /etc/dnf/dnf.conf /etc/yum.repos.d/ 2>/dev/null | grep -vP -- '^\h*gpgcheck\h*=\h*1\b'}) do
+    its('stdout.strip') { should be_empty }
   end
 end

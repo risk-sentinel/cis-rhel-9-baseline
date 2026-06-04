@@ -69,8 +69,10 @@ control 'C-1.2.1.3' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure repo_gpgcheck is globally activated' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-01020103r1_rule.'
+  impact 0.5
+  describe command(%q{grep -P -- '^\h*repo_gpgcheck\h*=\h*1\b' /etc/dnf/dnf.conf}) do
+    its('stdout') { should match(/\S/) }
   end
 end

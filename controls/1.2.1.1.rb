@@ -84,8 +84,10 @@ control 'C-1.2.1.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure GPG keys are configured' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-01020101r1_rule.'
+  impact 0.5
+  describe command(%q{rpm -q gpg-pubkey 2>/dev/null}) do
+    its('stdout') { should match(/gpg-pubkey-[0-9a-f]/) }
   end
 end
