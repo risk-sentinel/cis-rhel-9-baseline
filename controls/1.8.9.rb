@@ -138,10 +138,11 @@ control 'C-1.8.9' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  gdm = package('gdm').installed?
-  impact(gdm ? 0.5 : 0.0)
+  applicable = package('gdm').installed?
+  impact 0.5
+  impact 0.0 unless applicable
   describe command(%q{grep -Prs -- 'autorun-never' /etc/dconf/db/*/locks/ 2>/dev/null}) do
     its('stdout') { should match(/\S/) }
   end
-  only_if('N/A: GDM display manager not installed (see 1.8.1)') { gdm }
+  only_if('N/A: GDM display manager not installed (see 1.8.1)') { applicable }
 end

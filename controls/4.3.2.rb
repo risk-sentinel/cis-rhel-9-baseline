@@ -56,7 +56,8 @@ control 'C-4.3.2' do
   tag implementation_status: 'implemented'
 
   applicable = !service('firewalld').running?
-  impact(applicable ? 0.5 : 0.0)
+  impact 0.5
+  impact 0.0 unless applicable
   describe command(%q{nft list ruleset 2>/dev/null | grep -E 'ct state (established|related)'}) do
     its('stdout') { should match(/\S/) }
   end
