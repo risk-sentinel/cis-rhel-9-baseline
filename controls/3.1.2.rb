@@ -105,8 +105,10 @@ control 'C-3.1.2' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'implemented'
 
-  describe 'Ensure wireless interfaces are disabled' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-030102r1_rule.'
+  impact 0.5
+  describe command(%q{find /sys/class/net/*/ -maxdepth 1 -name wireless 2>/dev/null}) do
+    its('stdout.strip') { should be_empty }
   end
 end

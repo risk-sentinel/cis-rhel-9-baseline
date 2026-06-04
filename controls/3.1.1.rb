@@ -64,8 +64,11 @@ control 'C-3.1.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
+  tag implementation_status: 'alternative'
+  tag attestation_category:  'operational'
 
-  describe 'Ensure IPv6 status is identified' do
-    skip 'TODO[scaffolder]: implement check against XCCDF check-content. Source rule SV-030101r1_rule.'
+  impact 0.5
+  describe 'IPv6 status identified (3.1.1)' do
+    skip 'operational: IPv6 enablement is a documented network-architecture decision (this CIS item only requires the status be identified, not a fixed state); operator records the IPv6 posture.'
   end
 end
