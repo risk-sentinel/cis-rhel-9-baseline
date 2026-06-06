@@ -95,13 +95,24 @@ control 'C-6.1.2' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  impact 0.5
-  describe.one do
-    describe service('dailyaidecheck.timer') do
-      it { should be_enabled }
+  # host_lifecycle axis (#4): a scheduled runtime integrity scan is N/A on an
+  # ephemeral/immutable instance — integrity is established at image build and asserted
+  # via AMI provenance (6.1.1). persistent keeps the scheduled-check assertion unchanged.
+  if resolve_host_lifecycle(input('host_lifecycle')) == 'ephemeral'
+    impact 0.0
+    describe 'Scheduled AIDE integrity check N/A (host_lifecycle=ephemeral; integrity established at image build — see 6.1.1 AMI provenance)' do
+      subject { true }
+      it { is_expected.to eq true }
     end
-    describe command(%q{grep -rh aide /etc/cron.d /etc/crontab /etc/cron.daily /var/spool/cron 2>/dev/null}) do
-      its('stdout') { should match(/aide/) }
+  else
+    impact 0.5
+    describe.one do
+      describe service('dailyaidecheck.timer') do
+        it { should be_enabled }
+      end
+      describe command(%q{grep -rh aide /etc/cron.d /etc/crontab /etc/cron.daily /var/spool/cron 2>/dev/null}) do
+        its('stdout') { should match(/aide/) }
+      end
     end
   end
 end

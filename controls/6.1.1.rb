@@ -57,8 +57,29 @@ control 'C-6.1.1' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  impact 0.5
-  describe package('aide') do
-    it { should be_installed }
+  # host_lifecycle axis (#4): on ephemeral/immutable instances, filesystem integrity is
+  # established at image-build time and guaranteed by launching only from an approved
+  # AMI, not by runtime AIDE. Route to AMI provenance (live ec2:DescribeImages); persistent
+  # keeps the AIDE-installed assertion unchanged.
+  if resolve_host_lifecycle(input('host_lifecycle')) == 'ephemeral'
+    prov = ami_provenance
+    if !prov.available?
+      impact 0.5
+      describe 'Image integrity (ephemeral; live AMI provenance unavailable)' do
+        skip 'host_lifecycle=ephemeral but AMI provenance could not be read live ' \
+             "(#{prov.error}); evidence supplied by SAF attestation."
+      end
+    else
+      impact 0.5
+      describe "AMI provenance (#{prov.ami_id}; owner #{prov.owner_id}) is an approved/immutable image source" do
+        subject { prov.owned_by?(input('approved_ami_owners')) }
+        it { is_expected.to be true }
+      end
+    end
+  else
+    impact 0.5
+    describe package('aide') do
+      it { should be_installed }
+    end
   end
 end

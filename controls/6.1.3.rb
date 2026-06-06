@@ -164,8 +164,19 @@ control 'C-6.1.3' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  impact 0.5
-  describe command(%q{grep -rhE 'auditctl|auditd|ausearch|aureport|autrace|augenrules|rsyslogd' /etc/aide.conf /etc/aide.conf.d/ 2>/dev/null}) do
-    its('stdout') { should match(/\S/) }
+  # host_lifecycle axis (#4): protecting the audit tools inside an AIDE config is N/A on
+  # an ephemeral/immutable instance (no runtime AIDE) — integrity is established at image
+  # build and asserted via AMI provenance (6.1.1). persistent keeps the assertion.
+  if resolve_host_lifecycle(input('host_lifecycle')) == 'ephemeral'
+    impact 0.0
+    describe 'AIDE audit-tool integrity config N/A (host_lifecycle=ephemeral; no runtime AIDE — see 6.1.1 AMI provenance)' do
+      subject { true }
+      it { is_expected.to eq true }
+    end
+  else
+    impact 0.5
+    describe command(%q{grep -rhE 'auditctl|auditd|ausearch|aureport|autrace|augenrules|rsyslogd' /etc/aide.conf /etc/aide.conf.d/ 2>/dev/null}) do
+      its('stdout') { should match(/\S/) }
+    end
   end
 end

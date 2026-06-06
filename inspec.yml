@@ -40,3 +40,8 @@ inputs:
   - name: cloudwatch_max_ingestion_lag
     type: numeric
     value: 3600                # seconds; offbox live-ingestion freshness window
+  - name: approved_ami_owners
+    type: array
+    value: []                  # AWS account IDs whose AMIs are approved/immutable image
+                               # sources; empty approves nothing (fail-closed). Used by
+                               # the host_lifecycle=ephemeral integrity (AMI-provenance) branch.
