@@ -58,6 +58,21 @@ module PostureRouting
   def fs_na?(path)
     !mount(path).mounted? && resolve_host_lifecycle(input("host_lifecycle")) == "ephemeral"
   end
+
+  # log_pipeline axis (#4): true when logs are shipped off-box (offbox or both), so a
+  # control should positively assert durable CloudWatch ingestion rather than (or in
+  # addition to) the on-box mechanism.
+  def log_offbox?
+    %w[offbox both].include?(resolve_log_pipeline(input("log_pipeline")))
+  end
+
+  # Builds the CloudWatch ingestion evidence resource from the declared inputs.
+  def cw_ingestion
+    cloudwatch_log_ingestion(
+      group:  input("cloudwatch_audit_log_group"),
+      stream: input("cloudwatch_audit_stream"),
+    )
+  end
 end
 
 ::Inspec::Rule.include(PostureRouting)

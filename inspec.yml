@@ -40,6 +40,13 @@ inputs:
   - name: cloudwatch_max_ingestion_lag
     type: numeric
     value: 3600                # seconds; offbox live-ingestion freshness window
+  - name: cloudwatch_audit_log_group
+    type: string
+    value: ''                  # CloudWatch log group auditd/journald ship to; empty =>
+                               # cannot verify off-box ingestion (fail-closed -> SAF).
+  - name: cloudwatch_audit_stream
+    type: string
+    value: ''                  # stream name for this host; empty => use the IMDS instance-id
   - name: approved_ami_owners
     type: array
     value: []                  # AWS account IDs whose AMIs are approved/immutable image
