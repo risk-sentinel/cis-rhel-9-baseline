@@ -7,7 +7,7 @@ license: Apache-2.0
 summary: |
   Validates SPARC environments against CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0.
   Targets os platforms.
-version: 0.1.0
+version: 0.2.0
 inspec_version: '>= 5.0'
 
 supports:

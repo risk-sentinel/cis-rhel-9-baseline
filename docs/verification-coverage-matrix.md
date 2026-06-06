@@ -9,6 +9,39 @@ the overwhelming majority of CIS RHEL-9 controls are directly assertable against
 running host via stock inspec-core resources, so verification is the default and
 attestation is the narrow exception.
 
+## Posture-aware evidence routing (#4)
+
+Controls whose objective can be met on more than one deployment path no longer
+`skip` when the host alone can't satisfy them — they **branch their assertion on a
+resolved posture and positively verify the compensating mechanism**, failing only
+when *no* enforcing path is found. `skip` survives only for true N/A (and feeds a
+SAF attestation when a live cloud read isn't reachable).
+
+Five posture inputs (declared in `inspec.yml`) drive this, each with a **strict,
+fail-closed default** — unset/`auto` resolves to the strictest host branch, so a
+mis-declared scan over-reports rather than silently passing. The **Disposition /
+Attestation tables below describe that strict corner** (`persistent / onbox /
+host_nftables / interactive / baremetal`), which is byte-identical to the pre-#4
+profile. Declaring a non-strict posture re-routes the affected controls:
+
+| Axis (input) | Non-strict value | Re-routes (controls) | Compensating evidence asserted |
+|---|---|---|---|
+| `platform_class` | `cloud_nitro` | 1.4.1 | EC2 serial-console disabled ⇒ bootloader N/A *proven* (`aws_ec2_console_posture`) |
+| `host_lifecycle` | `ephemeral` | §1.1.2 (26), §6.1 (3) | per-mount isolation (distinct mounts still strict); AIDE → approved-AMI provenance (`ami_provenance`) |
+| `log_pipeline` | `offbox` / `both` | §6.3.2 (4), §6.2.1/2/3 (9) | durable CloudWatch ingestion, live (`cloudwatch_log_ingestion`); retention is defense-in-depth (on-box **and** CW) |
+| `network_firewall` | `cloud_sg` / `both` | §4 (7) | SG default-deny + world-open-port enumeration (`aws_security_group_posture`) |
+| `access_model` | `federated_ssm` | 5.2.4, 5.4.2.4, 5.4.2.5 | SSM/IAM escalation boundary (ssm-agent + root-SSH closed); root-PATH N/A |
+
+Cloud-evidence resources use the AWS SDK directly via the instance role (IMDS) — *not*
+inspec-aws, which a `-t local://` host scan cannot load — and are lazy/guarded so a
+non-AWS consumer degrades to the SAF fallback rather than failing to load. They need
+read grants on the scan role (`ec2:GetSerialConsoleAccessStatus`, `ec2:DescribeImages`,
+`logs:DescribeLogStreams`, `ec2:DescribeInstances`/`DescribeSecurityGroups` — sparc-iac#368).
+**13 controls that were operational attestations in strict mode become positive
+evidence** under the SPARC posture (the 9 §6.2 forwarding controls + 4.1.2 / 4.2.1 +
+5.4.2.4, with 5.4.2.5 N/A). The consumer (sparc-validate overlay) declares the posture
+and supplies SAF attestations for any axis without a live read.
+
 ## Disposition
 
 | Disposition | Count | Meaning |
