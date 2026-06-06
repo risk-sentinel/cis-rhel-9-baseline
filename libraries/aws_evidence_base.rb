@@ -67,9 +67,12 @@ class AwsEvidenceBase < Inspec.resource(1)
       '-H "X-aws-ec2-metadata-token-ttl-seconds: 60" --max-time 2'
     ).stdout.to_s.strip
     return "" if token.empty?
+    # `path` is a full IMDS path from root (e.g. /latest/meta-data/instance-id,
+    # /latest/dynamic/instance-identity/document) — do NOT prepend a prefix here, or it
+    # double-prefixes to /latest/meta-data/latest/... and 404s.
     inspec.command(
       %(curl -s --max-time 2 -H "X-aws-ec2-metadata-token: #{token}" ) +
-      %(http://169.254.169.254/latest/meta-data#{path})
+      %(http://169.254.169.254#{path})
     ).stdout.to_s.strip
   rescue StandardError => e
     @error ||= "IMDS lookup failed: #{e.message}"
