@@ -149,6 +149,7 @@ control 'C-1.8.2' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        false
 
   applicable = package('gdm').installed?
   impact 0.5

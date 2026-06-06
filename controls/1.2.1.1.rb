@@ -84,6 +84,7 @@ control 'C-1.2.1.1' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{rpm -q gpg-pubkey 2>/dev/null}) do

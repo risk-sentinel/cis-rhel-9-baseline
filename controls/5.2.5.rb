@@ -45,6 +45,7 @@ control 'C-5.2.5' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -rP -- '^[^#].*\!authenticate' /etc/sudoers /etc/sudoers.d/ 2>/dev/null}) do

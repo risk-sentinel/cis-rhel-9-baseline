@@ -58,6 +58,7 @@ control 'C-5.4.2.8' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{for u in $(awk -F: '($7~/(nologin|false)$/){print $1}' /etc/passwd); do s=$(awk -F: -v u="$u" '($1==u){print $2}' /etc/shadow); f=${s:0:1}; [ "$f" != "!" ] && [ "$f" != "*" ] && echo "$u"; done}) do

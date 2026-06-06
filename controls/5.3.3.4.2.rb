@@ -87,6 +87,7 @@ control 'C-5.3.3.4.2' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -rP -- 'pam_unix\.so[^\n]*\bremember=' /etc/pam.d/system-auth /etc/pam.d/password-auth 2>/dev/null}) do

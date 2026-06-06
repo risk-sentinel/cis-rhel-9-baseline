@@ -67,6 +67,7 @@ control 'C-6.3.1.2' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
   impact 0.5
   describe command(%q{grubby --info=ALL 2>/dev/null | grep '^args=' | grep -v 'audit=1'}) do
     its('stdout.strip') { should be_empty }

@@ -45,6 +45,7 @@ control 'C-7.2.3' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{for g in $(cut -d: -f4 /etc/passwd | sort -u); do grep -q -- ":$g:" /etc/group || echo "missing-gid:$g"; done}) do

@@ -54,6 +54,7 @@ control 'C-5.4.2.7' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{awk -F: '($3<1000 && $1!="root" && $7!~/(nologin|false)$/ && $1!~/^(sync|shutdown|halt)$/){print $1}' /etc/passwd}) do

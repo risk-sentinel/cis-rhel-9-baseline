@@ -80,6 +80,7 @@ control 'C-5.1.7' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'alternative'
+  tag exec_validated:        false
   tag attestation_category:  'policy'
 
   impact 0.5

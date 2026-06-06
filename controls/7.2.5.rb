@@ -41,6 +41,7 @@ control 'C-7.2.5' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{cut -d: -f3 /etc/group | sort -n | uniq -d}) do

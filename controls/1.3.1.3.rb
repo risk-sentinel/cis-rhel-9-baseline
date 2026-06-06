@@ -45,6 +45,7 @@ control 'C-1.3.1.3' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -E '^\s*SELINUXTYPE=(targeted|mls)' /etc/selinux/config}) do

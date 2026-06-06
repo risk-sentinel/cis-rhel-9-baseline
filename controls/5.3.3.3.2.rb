@@ -48,6 +48,7 @@ control 'C-5.3.3.3.2' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -rP -- '^\h*enforce_for_root\b' /etc/security/pwhistory.conf}) do

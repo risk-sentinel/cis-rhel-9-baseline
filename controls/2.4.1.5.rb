@@ -44,6 +44,7 @@ control 'C-2.4.1.5' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe directory('/etc/cron.weekly') do

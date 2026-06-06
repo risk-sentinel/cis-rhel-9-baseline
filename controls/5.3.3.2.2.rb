@@ -78,6 +78,7 @@ control 'C-5.3.3.2.2' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -rP -- '^\h*minlen\h*=' /etc/security/pwquality.conf /etc/security/pwquality.conf.d/ 2>/dev/null}) do

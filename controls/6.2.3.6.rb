@@ -74,6 +74,7 @@ control 'C-6.2.3.6' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'alternative'
+  tag exec_validated:        false
   tag attestation_category:  'operational'
 
   impact 0.5

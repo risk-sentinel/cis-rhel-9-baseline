@@ -107,3 +107,12 @@ Caveats:
   host with GDM / the alternate firewall back-end; they are N/A here, not unvalidated.
 - Privilege: the run was as **root** (SSM `AWS-RunShellScript` default), so the
   root-only audits (auditd/`/etc/shadow`/`nft`/`grubby`) executed rather than erroring.
+
+Every control now carries a per-control `tag exec_validated:` reflecting that run:
+**`true`** on the 267 controls that exercised real resource logic (passed/failed),
+**`false`** on the 30 that skipped on this host (20 attestation-by-design + 10
+conditional whose `only_if` was false here — the 9 §1.8 GDM controls and §4.2.2
+firewalld-loopback). A `false` on a conditional control means "not triggered on this
+host," not "unvalidated" — it would exercise its logic on an applicable host (e.g.
+the §4.3 nftables controls, which ran here and are tagged `true` because firewalld
+was inactive).

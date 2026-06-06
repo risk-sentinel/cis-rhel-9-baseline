@@ -87,6 +87,7 @@ control 'C-4.3.1' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   applicable = !service('firewalld').running?
   impact 0.5

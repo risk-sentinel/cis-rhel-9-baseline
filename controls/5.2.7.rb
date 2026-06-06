@@ -49,6 +49,7 @@ control 'C-5.2.7' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -Pi -- '^\h*auth\h+(required|requisite)\h+pam_wheel\.so\h+([^#\n\r]+\h+)?(use_uid\h+)?([^#\n\r]+\h+)?group=' /etc/pam.d/su 2>/dev/null}) do

@@ -127,6 +127,7 @@ control 'C-5.4.3.2' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -rPh -- '^\h*([^#\n]*\h)?TMOUT\h*=' /etc/profile /etc/profile.d/ /etc/bashrc 2>/dev/null}) do

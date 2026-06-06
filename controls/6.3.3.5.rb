@@ -158,6 +158,7 @@ control 'C-6.3.3.5' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -rhE -- '(\-k +system-locale|key=system-locale)' /etc/audit/rules.d/ 2>/dev/null}) do

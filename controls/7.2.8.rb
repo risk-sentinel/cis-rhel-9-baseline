@@ -116,6 +116,7 @@ control 'C-7.2.8' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{awk -F: '($3>=1000 && $1!="nobody" && $7!~/(nologin|false)/){print $6}' /etc/passwd | while read -r d; do if [ -d "$d" ]; then p=$(stat -L -c '%a' "$d"); [ $((8#$p & 8#027)) -ne 0 ] && echo "$d:$p"; else echo "missing:$d"; fi; done}) do

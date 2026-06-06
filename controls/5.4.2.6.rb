@@ -65,6 +65,7 @@ control 'C-5.4.2.6' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -rPh -- '^\h*umask\h+0?[0-7]*[2367]7\b' /root/.bash_profile /root/.bashrc /root/.profile 2>/dev/null}) do

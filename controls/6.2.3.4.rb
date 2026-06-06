@@ -71,6 +71,7 @@ control 'C-6.2.3.4' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -rhE '^\s*\$FileCreateMode\s+0[0-6][0-4]0' /etc/rsyslog.conf /etc/rsyslog.d/ 2>/dev/null}) do

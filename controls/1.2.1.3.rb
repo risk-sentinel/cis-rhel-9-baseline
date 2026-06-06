@@ -69,6 +69,7 @@ control 'C-1.2.1.3' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -P -- '^\h*repo_gpgcheck\h*=\h*1\b' /etc/dnf/dnf.conf}) do

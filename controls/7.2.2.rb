@@ -38,6 +38,7 @@ control 'C-7.2.2' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{awk -F: '($2 == "") {print $1}' /etc/shadow}) do

@@ -42,6 +42,7 @@ control 'C-5.4.1.6' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{awk -F: 'BEGIN{t=int(systime()/86400)} ($3 != "" && $3+0 > t){print $1}' /etc/shadow 2>/dev/null}) do

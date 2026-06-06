@@ -113,6 +113,7 @@ control 'C-6.3.2.4' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -E '^\s*space_left_action\s*=\s*(email|exec|single|halt)' /etc/audit/auditd.conf}) do

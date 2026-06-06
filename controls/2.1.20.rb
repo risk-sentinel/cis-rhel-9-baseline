@@ -43,6 +43,7 @@ control 'C-2.1.20' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe package('xorg-x11-server-common') do

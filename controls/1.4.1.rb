@@ -51,6 +51,7 @@ control 'C-1.4.1' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -P -- '^\h*(set\h+superusers|GRUB2_PASSWORD)' /boot/grub2/user.cfg /boot/grub2/grub.cfg 2>/dev/null}) do

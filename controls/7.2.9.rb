@@ -183,6 +183,7 @@ control 'C-7.2.9' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{awk -F: '($3>=1000 && $7!~/(nologin|false)/){print $6}' /etc/passwd | while read -r d; do find "$d" -maxdepth 1 -name '.*' -type f -perm /022 2>/dev/null; done}) do

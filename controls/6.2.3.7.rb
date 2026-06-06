@@ -72,6 +72,7 @@ control 'C-6.2.3.7' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -rhE '^\s*(module\(load="im(tcp|udp|relp)"|\$ModLoad\s+im(tcp|udp|relp)|input\(type="im(tcp|udp|relp)"|\$InputTCPServerRun|\$InputUDPServerRun)' /etc/rsyslog.conf /etc/rsyslog.d/ 2>/dev/null}) do

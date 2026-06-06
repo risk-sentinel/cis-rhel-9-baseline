@@ -51,6 +51,7 @@ control 'C-5.4.3.1' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   impact 0.5
   describe command(%q{grep -P -- 'nologin' /etc/shells 2>/dev/null}) do
