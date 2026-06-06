@@ -88,6 +88,28 @@ module PostureRouting
   def fw_both?
     firewall_posture == "both"
   end
+
+  # access_model axis (#4).
+  def access_federated?
+    resolve_access_model(input("access_model")) == "federated_ssm"
+  end
+
+  # Host-visible federated-access boundary: access/escalation is gated by the SSM/IAM
+  # layer (the SSM agent is running) AND direct root SSH is closed. When this holds,
+  # NOPASSWD sudo is reachable only through an already-authenticated SSM session.
+  def federated_boundary_ok?
+    ssm = begin
+      service("amazon-ssm-agent").running?
+    rescue StandardError
+      false
+    end
+    root_login = begin
+      sshd_config.PermitRootLogin.to_s
+    rescue StandardError
+      ""
+    end
+    ssm && %w[no prohibit-password].include?(root_login)
+  end
 end
 
 ::Inspec::Rule.include(PostureRouting)

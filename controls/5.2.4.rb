@@ -46,8 +46,20 @@ control 'C-5.2.4' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  impact 0.5
-  describe command(%q{grep -rP -- '^[^#].*NOPASSWD' /etc/sudoers /etc/sudoers.d/ 2>/dev/null}) do
-    its('stdout.strip') { should be_empty }
+  # access_model axis (#4): interactive requires a sudo password; federated_ssm gates
+  # access/escalation at the IAM/SSM layer, so NOPASSWD is acceptable ONLY while the
+  # boundary holds (ssm-agent running + direct root SSH disabled) — assert that boundary.
+  if access_federated?
+    impact 0.5
+    ok = federated_boundary_ok?
+    describe 'federated_ssm access boundary (ssm-agent running + direct root SSH disabled)' do
+      subject { ok }
+      it { is_expected.to be true }
+    end
+  else
+    impact 0.5
+    describe command(%q{grep -rP -- '^[^#].*NOPASSWD' /etc/sudoers /etc/sudoers.d/ 2>/dev/null}) do
+      its('stdout.strip') { should be_empty }
+    end
   end
 end

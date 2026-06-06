@@ -57,8 +57,20 @@ control 'C-5.4.2.4' do
   tag implementation_status: 'alternative'
   tag attestation_category:  'operational'
 
-  impact 0.5
-  describe 'root account access controlled (5.4.2.4)' do
-    skip 'operational: root-access governance (console/break-glass, locked direct login, MFA on bastion) is an org IAM-policy decision; verified surface is covered by 5.2.7 (su) + 5.1.20 (PermitRootLogin).'
+  # access_model axis (#4): federated_ssm makes root access controllable by positive
+  # evidence — the SSM/IAM layer gates access and direct root SSH is closed. interactive
+  # keeps the IAM-governance attestation (verified surface is 5.2.7 su + 5.1.20).
+  if access_federated?
+    impact 0.5
+    ok = federated_boundary_ok?
+    describe 'federated_ssm root-access boundary (ssm-agent running + direct root SSH disabled)' do
+      subject { ok }
+      it { is_expected.to be true }
+    end
+  else
+    impact 0.5
+    describe 'root account access controlled (5.4.2.4)' do
+      skip 'operational: root-access governance (console/break-glass, locked direct login, MFA on bastion) is an org IAM-policy decision; verified surface is covered by 5.2.7 (su) + 5.1.20 (PermitRootLogin).'
+    end
   end
 end

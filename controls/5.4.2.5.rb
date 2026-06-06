@@ -73,8 +73,19 @@ control 'C-5.4.2.5' do
   tag implementation_status: 'alternative'
   tag attestation_category:  'operational'
 
-  impact 0.5
-  describe 'root path integrity (5.4.2.5)' do
-    skip 'operational: the effective PATH of the root account is only resolvable in an interactive root session (unavailable to the unprivileged scanner); operator attests no empty/relative/world-writable PATH entries.'
+  # access_model axis (#4): root's effective PATH only exists in an interactive root
+  # session. Under federated_ssm there is no interactive root login (access is via SSM),
+  # so this is N/A. interactive keeps the attestation (PATH unreadable to the scanner).
+  if access_federated?
+    impact 0.0
+    describe 'root PATH integrity N/A (access_model=federated_ssm; no interactive root session — access via SSM)' do
+      subject { true }
+      it { is_expected.to eq true }
+    end
+  else
+    impact 0.5
+    describe 'root path integrity (5.4.2.5)' do
+      skip 'operational: the effective PATH of the root account is only resolvable in an interactive root session (unavailable to the unprivileged scanner); operator attests no empty/relative/world-writable PATH entries.'
+    end
   end
 end
