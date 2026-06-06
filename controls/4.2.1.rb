@@ -77,8 +77,27 @@ control 'C-4.2.1' do
   tag implementation_status: 'alternative'
   tag attestation_category:  'operational'
 
-  impact 0.5
-  describe 'firewalld drops unnecessary services/ports (4.2.1)' do
-    skip 'operational: the set of permitted services/ports is consumer workload policy; operator attests the allowed list against the service inventory (verified network-listening surface is covered by 2.1.22).'
+  # network_firewall axis (#4): under cloud_sg/both, "drop unnecessary services/ports" is
+  # the security group's job — assert default-deny (no world-open ports) as positive
+  # evidence and enumerate any exposure. host_nftables keeps the workload-policy attestation.
+  if fw_cloud?
+    fw = firewall_posture
+    sg = aws_security_group_posture
+    if sg.available?
+      impact 0.5
+      describe sg do
+        it { should be_default_deny }
+      end
+    else
+      impact 0.5
+      describe 'SG ingress posture (live read unavailable)' do
+        skip "network_firewall=#{fw} but SG posture could not be read live (#{sg.error}); SAF attestation supplies evidence."
+      end
+    end
+  else
+    impact 0.5
+    describe 'firewalld drops unnecessary services/ports (4.2.1)' do
+      skip 'operational: the set of permitted services/ports is consumer workload policy; operator attests the allowed list against the service inventory (verified network-listening surface is covered by 2.1.22).'
+    end
   end
 end

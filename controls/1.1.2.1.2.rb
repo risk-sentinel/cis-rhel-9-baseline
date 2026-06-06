@@ -53,9 +53,19 @@ control 'C-1.1.2.1.2' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  impact 0.5
-  describe mount('/tmp') do
-    it { should be_mounted }
-    its('options') { should include 'nodev' }
+  # host_lifecycle axis (#4): assert nodev where /tmp is a distinct mount; ephemeral
+  # renders N/A when /tmp is folded into root. See PostureRouting#fs_na?.
+  if fs_na?('/tmp')
+    impact 0.0
+    describe '/tmp nodev isolation N/A (host_lifecycle=ephemeral; folded into root)' do
+      subject { mount('/tmp').mounted? }
+      it { is_expected.to eq false }
+    end
+  else
+    impact 0.5
+    describe mount('/tmp') do
+      it { should be_mounted }
+      its('options') { should include 'nodev' }
+    end
   end
 end

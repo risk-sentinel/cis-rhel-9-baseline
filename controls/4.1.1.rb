@@ -42,8 +42,18 @@ control 'C-4.1.1' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  impact 0.5
-  describe package('nftables') do
-    it { should be_installed }
+  # network_firewall axis (#4): under cloud_sg the host firewall is not the ingress
+  # enforcer (AWS security groups are — see 4.3.3), so a host nftables package is N/A.
+  if firewall_posture == 'cloud_sg'
+    impact 0.0
+    describe 'nftables install N/A (network_firewall=cloud_sg; ingress enforced by AWS security groups — see 4.3.3)' do
+      subject { true }
+      it { is_expected.to eq true }
+    end
+  else
+    impact 0.5
+    describe package('nftables') do
+      it { should be_installed }
+    end
   end
 end

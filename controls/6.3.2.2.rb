@@ -44,4 +44,19 @@ control 'C-6.3.2.2' do
   describe command(%q{grep -E '^\s*max_log_file_action\s*=\s*keep_logs' /etc/audit/auditd.conf}) do
     its('stdout') { should match(/\S/) }
   end
+
+  # log_pipeline axis (#4): defense-in-depth — when logs ship off-box, also prove durable
+  # CloudWatch ingestion (the on-box buffer above guards against ship failures).
+  if log_offbox?
+    cwl = cw_ingestion
+    if cwl.available?
+      describe cwl do
+        it { should be_ingesting_within(input('cloudwatch_max_ingestion_lag')) }
+      end
+    else
+      describe 'Off-box log durability (live CloudWatch read unavailable)' do
+        skip "log_pipeline ships off-box but CloudWatch ingestion could not be read live (#{cwl.error}); evidence supplied by SAF attestation."
+      end
+    end
+  end
 end

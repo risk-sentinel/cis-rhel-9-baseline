@@ -53,9 +53,19 @@ control 'C-1.1.2.1.4' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  impact 0.5
-  describe mount('/tmp') do
-    it { should be_mounted }
-    its('options') { should include 'noexec' }
+  # host_lifecycle axis (#4): assert noexec where /tmp is a distinct mount (incl. tmpfs);
+  # ephemeral renders N/A when /tmp is folded into root. See PostureRouting#fs_na?.
+  if fs_na?('/tmp')
+    impact 0.0
+    describe '/tmp noexec isolation N/A (host_lifecycle=ephemeral; folded into root)' do
+      subject { mount('/tmp').mounted? }
+      it { is_expected.to eq false }
+    end
+  else
+    impact 0.5
+    describe mount('/tmp') do
+      it { should be_mounted }
+      its('options') { should include 'noexec' }
+    end
   end
 end

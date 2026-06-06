@@ -53,9 +53,19 @@ control 'C-1.1.2.6.3' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  impact 0.5
-  describe mount('/var/log') do
-    it { should be_mounted }
-    its('options') { should include 'nosuid' }
+  # host_lifecycle axis (#4): assert nosuid where /var/log is a distinct mount; ephemeral
+  # renders N/A when /var/log is folded into root. See PostureRouting#fs_na?.
+  if fs_na?('/var/log')
+    impact 0.0
+    describe '/var/log nosuid isolation N/A (host_lifecycle=ephemeral; folded into root)' do
+      subject { mount('/var/log').mounted? }
+      it { is_expected.to eq false }
+    end
+  else
+    impact 0.5
+    describe mount('/var/log') do
+      it { should be_mounted }
+      its('options') { should include 'nosuid' }
+    end
   end
 end

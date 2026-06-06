@@ -52,8 +52,41 @@ control 'C-1.4.1' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  impact 0.5
-  describe command(%q{grep -P -- '^\h*(set\h+superusers|GRUB2_PASSWORD)' /boot/grub2/user.cfg /boot/grub2/grub.cfg 2>/dev/null}) do
-    its('stdout') { should match(/\S/) }
+  # platform axis (#4): the bootloader password defends the *interactive* boot path.
+  # On Nitro that path is the account-level EC2 Serial Console (disabled by default and
+  # the only way in — there is no physical console), so we prove its state rather than
+  # assume it. baremetal (strict default) keeps the original assertion unchanged.
+  case resolve_platform_class(input('platform_class'))
+  when 'cloud_nitro'
+    console = aws_ec2_console_posture
+    if !console.available?
+      impact 0.5
+      describe 'Bootloader interactive-boot path (cloud_nitro; live serial-console read unavailable)' do
+        skip 'platform_class=cloud_nitro but EC2 serial-console status could not be read ' \
+             "live (#{console.error}); evidence supplied by SAF attestation."
+      end
+    elsif console.serial_console_enabled?
+      # Serial console enabled => an interactive boot path is reachable => the GRUB
+      # password still matters. Assert it exactly as on baremetal.
+      impact 0.5
+      describe command(%q{grep -P -- '^\h*(set\h+superusers|GRUB2_PASSWORD)' /boot/grub2/user.cfg /boot/grub2/grub.cfg 2>/dev/null}) do
+        its('stdout') { should match(/\S/) }
+      end
+    else
+      # Serial console disabled + no physical console => no interactive boot path.
+      # Objective (no unauthorized boot-param changes) is met by the platform. Proven
+      # N/A: impact 0.0 + a passing assertion renders Not Applicable in HDF, evidence kept.
+      impact 0.0
+      describe 'Bootloader password N/A on Nitro (EC2 serial console disabled; no interactive boot path)' do
+        subject { console.serial_console_enabled? }
+        it { is_expected.to eq false }
+      end
+    end
+  else
+    # baremetal (strict default) — unchanged pre-#4 behavior.
+    impact 0.5
+    describe command(%q{grep -P -- '^\h*(set\h+superusers|GRUB2_PASSWORD)' /boot/grub2/user.cfg /boot/grub2/grub.cfg 2>/dev/null}) do
+      its('stdout') { should match(/\S/) }
+    end
   end
 end

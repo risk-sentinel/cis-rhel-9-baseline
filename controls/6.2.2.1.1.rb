@@ -47,11 +47,22 @@ control 'C-6.2.2.1.1' do
   tag cis_version:           '2.0.0'
   tag cis_level:             1
   tag cis_scored:            true
-  tag implementation_status: 'alternative'
-  tag attestation_category:  'operational'
+  tag implementation_status: 'implemented'
 
-  impact 0.5
-  describe 'systemd-journal-remote installed (6.2.2.1.1)' do
-    skip 'operational: remote-log forwarding is a site-specific architecture choice; applicable only when central journald collection is used.'
+  # log_pipeline axis (#4): off-box forwarding/retention is proven by durable CloudWatch
+  # ingestion (SPARC ships via the CloudWatch agent); onbox => logs retained on-box (N/A).
+  if log_offbox?
+    impact 0.5
+    cwl = cw_ingestion
+    only_if("log_pipeline ships off-box but CloudWatch ingestion could not be read live (#{cwl.error}); evidence supplied by SAF attestation.") { cwl.available? }
+    describe cwl do
+      it { should be_ingesting_within(input('cloudwatch_max_ingestion_lag')) }
+    end
+  else
+    impact 0.0
+    describe 'Off-box log pipeline N/A (log_pipeline=onbox; logs retained on-box)' do
+      subject { true }
+      it { is_expected.to eq true }
+    end
   end
 end

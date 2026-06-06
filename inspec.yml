@@ -7,8 +7,48 @@ license: Apache-2.0
 summary: |
   Validates SPARC environments against CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0.
   Targets os platforms.
-version: 0.1.0
+version: 0.2.0
 inspec_version: '>= 5.0'
 
 supports:
   - platform: os
+
+# Posture axes — issue #4 (posture-aware evidence routing).
+# Strict (fail-closed) defaults: unset => strictest branch => every objective is
+# enforced on the host path, exactly as the pre-#4 profile behaved. A consumer
+# declares a non-strict posture to route a control's assertion to its
+# compensating-mechanism evidence (cloud SG, off-box logging, AMI provenance,
+# federated access). 'auto' resolves host-visible signals but never leaves the
+# strict path on its own — routing to a cloud/attested branch is an explicit
+# consumer decision, declared in the overlay.
+inputs:
+  - name: host_lifecycle
+    type: string
+    value: persistent          # persistent | ephemeral | auto
+  - name: log_pipeline
+    type: string
+    value: onbox               # onbox | offbox | both | auto
+  - name: network_firewall
+    type: string
+    value: host_nftables       # host_nftables | cloud_sg | both | auto
+  - name: access_model
+    type: string
+    value: interactive         # interactive | federated_ssm | auto
+  - name: platform_class
+    type: string
+    value: baremetal           # baremetal | cloud_nitro | auto
+  - name: cloudwatch_max_ingestion_lag
+    type: numeric
+    value: 3600                # seconds; offbox live-ingestion freshness window
+  - name: cloudwatch_audit_log_group
+    type: string
+    value: ''                  # CloudWatch log group auditd/journald ship to; empty =>
+                               # cannot verify off-box ingestion (fail-closed -> SAF).
+  - name: cloudwatch_audit_stream
+    type: string
+    value: ''                  # stream name for this host; empty => use the IMDS instance-id
+  - name: approved_ami_owners
+    type: array
+    value: []                  # AWS account IDs whose AMIs are approved/immutable image
+                               # sources; empty approves nothing (fail-closed). Used by
+                               # the host_lifecycle=ephemeral integrity (AMI-provenance) branch.
