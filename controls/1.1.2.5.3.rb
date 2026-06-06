@@ -55,6 +55,7 @@ control 'C-1.1.2.5.3' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   # host_lifecycle axis: assert nosuid where /var/tmp is a distinct mount; ephemeral
   # renders N/A when /var/tmp is folded into root. See PostureRouting#fs_na?.

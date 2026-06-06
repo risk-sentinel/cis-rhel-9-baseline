@@ -74,6 +74,7 @@ control 'C-5.4.2.5' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'alternative'
+  tag exec_validated:        false
   tag attestation_category:  'operational'
 
   # access_model axis: root's effective PATH only exists in an interactive root

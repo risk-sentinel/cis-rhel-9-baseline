@@ -54,6 +54,7 @@ control 'C-1.4.1' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   # platform axis: the bootloader password defends the *interactive* boot path.
   # On Nitro that path is the account-level EC2 Serial Console (disabled by default and

@@ -55,7 +55,7 @@ control 'C-6.2.2.1.3' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
-
+  tag exec_validated:        false
   # log_pipeline axis: off-box forwarding/retention is proven by durable CloudWatch
   # ingestion (e.g. via the CloudWatch agent); onbox => logs retained on-box (N/A).
   if log_offbox?

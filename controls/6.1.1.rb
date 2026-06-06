@@ -59,6 +59,7 @@ control 'C-6.1.1' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   # host_lifecycle axis: on ephemeral/immutable instances, filesystem integrity is
   # established at image-build time and guaranteed by launching only from an approved

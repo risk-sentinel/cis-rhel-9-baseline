@@ -114,6 +114,7 @@ control 'C-4.3.4' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   # network_firewall axis: under cloud_sg the host firewall is not the ingress
   # enforcer (AWS security groups are — see 4.3.3), so this host-stack rule is N/A.
