@@ -45,6 +45,19 @@ module PostureRouting
     d = declared.to_s
     d == "auto" ? "interactive" : d
   end
+
+  # host_lifecycle axis (#4) — dynamic §1.1.2 filesystem-isolation routing keyed off the
+  # ACTUAL mount state, not just the flag. True => this path's separate-mount isolation
+  # is Not Applicable: it is folded into root AND the consumer declared an ephemeral
+  # lifecycle. In every other case the strict assertion runs:
+  #   - distinct mount (real partition / EBS volume / tmpfs) => strict in BOTH postures,
+  #     so tmpfs /tmp & /dev/shm still get their nodev/nosuid/noexec asserted on ephemeral;
+  #   - folded into root + persistent => strict assertion FAILS (the partition should exist).
+  # The control keeps its `describe` blocks inline (static-visible to `check`) and selects
+  # a literal impact per branch (avoids the InSpec-7 impact-by-method-call AST crash).
+  def fs_na?(path)
+    !mount(path).mounted? && resolve_host_lifecycle(input("host_lifecycle")) == "ephemeral"
+  end
 end
 
 ::Inspec::Rule.include(PostureRouting)

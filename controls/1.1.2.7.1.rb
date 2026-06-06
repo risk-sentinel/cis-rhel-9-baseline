@@ -46,8 +46,18 @@ control 'C-1.1.2.7.1' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  impact 0.5
-  describe mount('/var/log/audit') do
-    it { should be_mounted }
+  # host_lifecycle axis (#4): strict when /var/log/audit is a distinct mount; ephemeral renders
+  # N/A when /var/log/audit is folded into root. See PostureRouting#fs_na?.
+  if fs_na?('/var/log/audit')
+    impact 0.0
+    describe '/var/log/audit separate-mount isolation N/A (host_lifecycle=ephemeral; folded into root)' do
+      subject { mount('/var/log/audit').mounted? }
+      it { is_expected.to eq false }
+    end
+  else
+    impact 0.5
+    describe mount('/var/log/audit') do
+      it { should be_mounted }
+    end
   end
 end
