@@ -91,6 +91,19 @@ scan principal accordingly before relying on results.
 Statically validated on `risksentinel/sparc-auditor:v0.1.1` (amd64): `check` → **Valid,
 297 controls, no offenses**; `json` → exit 0, all 297 serialize, **no library-load errors**.
 
-⚠️ `exec_validated: false` — not yet exec'd against a live RHEL-9 host. The host checks
-(and especially the `command`-based audits) must be validated against the SPARC RHEL-9
-ASG (or a honeypot) before relying on a FAIL.
+✅ **`exec_validated` — exec'd `-t local://` (as root) against a live RHEL-9.6 (aarch64)
+host (2026-06-05).** All 297 controls ran: **126 passed / 141 failed / 30 skipped, and
+ZERO errored.** The zero-error result is the signal that matters: every control's
+resource logic (the `command`/`file`/`mount`/`auditd`/`grubby`/`nft`/`/etc/shadow`
+audits) executed cleanly against a real host — no `NoMethodError`/resource-API crashes,
+which `check`/`json` cannot catch. The 141 failures are *real findings* on an
+unhardened honeypot (expected — the host is not CIS-hardened), not profile defects.
+
+Caveats:
+- **267 controls** exercised their resource logic (the 126 passed + 141 failed).
+- **30 skipped** = the 20 attestation controls (by design) + ~10 conditional controls
+  whose `only_if` was false on this host — the §1.8 GDM controls (headless, GDM removed)
+  and the non-chosen firewall path (§4.2/§4.3). Those would exercise their logic on a
+  host with GDM / the alternate firewall back-end; they are N/A here, not unvalidated.
+- Privilege: the run was as **root** (SSM `AWS-RunShellScript` default), so the
+  root-only audits (auditd/`/etc/shadow`/`nft`/`grubby`) executed rather than erroring.
