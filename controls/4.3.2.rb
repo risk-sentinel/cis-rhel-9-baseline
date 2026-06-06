@@ -55,11 +55,21 @@ control 'C-4.3.2' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  applicable = !service('firewalld').running?
-  impact 0.5
-  impact 0.0 unless applicable
-  describe command(%q{nft list ruleset 2>/dev/null | grep -E 'ct state (established|related)'}) do
-    its('stdout') { should match(/\S/) }
+  # network_firewall axis (#4): under cloud_sg the host firewall is not the ingress
+  # enforcer (AWS security groups are — see 4.3.3), so this host-stack rule is N/A.
+  if firewall_posture == 'cloud_sg'
+    impact 0.0
+    describe 'nftables established-connection rules N/A (network_firewall=cloud_sg; ingress enforced by AWS security groups — see 4.3.3)' do
+      subject { true }
+      it { is_expected.to eq true }
+    end
+  else
+    applicable = !service('firewalld').running?
+    impact 0.5
+    impact 0.0 unless applicable
+    describe command(%q{nft list ruleset 2>/dev/null | grep -E 'ct state (established|related)'}) do
+      its('stdout') { should match(/\S/) }
+    end
+    only_if('N/A unless nftables (standalone) is the active firewall (see 4.1.2)') { applicable }
   end
-  only_if('N/A unless nftables (standalone) is the active firewall (see 4.1.2)') { applicable }
 end

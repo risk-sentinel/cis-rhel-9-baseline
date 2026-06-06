@@ -65,11 +65,45 @@ control 'C-4.3.3' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  applicable = !service('firewalld').running?
-  impact 0.5
-  impact 0.0 unless applicable
-  describe command(%q{nft list ruleset 2>/dev/null | grep -E 'type filter hook (input|forward|output).*policy drop'}) do
-    its('stdout') { should match(/\S/) }
+  # network_firewall axis (#4): the default-deny ingress objective routes to where it is
+  # enforced. cloud_sg => assert the SG default-deny posture; both => assert host nftables
+  # default-drop AND the SG (defense-in-depth); host_nftables (strict default) => the
+  # original host nftables assertion unchanged.
+  if firewall_posture == 'cloud_sg'
+    sg = aws_security_group_posture
+    if sg.available?
+      impact 0.5
+      describe sg do
+        it { should be_default_deny }
+      end
+    else
+      impact 0.5
+      describe 'SG ingress default-deny (live read unavailable)' do
+        skip "network_firewall=cloud_sg but SG posture could not be read live (#{sg.error}); SAF attestation supplies evidence."
+      end
+    end
+  elsif fw_both?
+    impact 0.5
+    describe command(%q{nft list ruleset 2>/dev/null | grep -E 'type filter hook (input|forward|output).*policy drop'}) do
+      its('stdout') { should match(/\S/) }
+    end
+    sg = aws_security_group_posture
+    if sg.available?
+      describe sg do
+        it { should be_default_deny }
+      end
+    else
+      describe 'SG ingress default-deny (live read unavailable)' do
+        skip "network_firewall=both but SG posture could not be read live (#{sg.error}); SAF attestation supplies evidence."
+      end
+    end
+  else
+    applicable = !service('firewalld').running?
+    impact 0.5
+    impact 0.0 unless applicable
+    describe command(%q{nft list ruleset 2>/dev/null | grep -E 'type filter hook (input|forward|output).*policy drop'}) do
+      its('stdout') { should match(/\S/) }
+    end
+    only_if('N/A unless nftables (standalone) is the active firewall (see 4.1.2)') { applicable }
   end
-  only_if('N/A unless nftables (standalone) is the active firewall (see 4.1.2)') { applicable }
 end

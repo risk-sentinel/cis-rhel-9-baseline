@@ -142,8 +142,27 @@ control 'C-4.1.2' do
   tag implementation_status: 'alternative'
   tag attestation_category:  'operational'
 
-  impact 0.5
-  describe 'single firewall utility in use (4.1.2)' do
-    skip 'operational: the firewall front-end (firewalld vs standalone nftables vs iptables) is a consumer architecture decision; §4.2 (firewalld) and §4.3 (nftables) are mutually-exclusive and each guarded N/A on the non-chosen path.'
+  # network_firewall axis (#4): under cloud_sg/both the single ingress-governing utility
+  # is the AWS security group — assert its default-deny posture (positive evidence
+  # replacing the host-front-end attestation). host_nftables keeps the attestation.
+  if fw_cloud?
+    fw = firewall_posture
+    sg = aws_security_group_posture
+    if sg.available?
+      impact 0.5
+      describe sg do
+        it { should be_default_deny }
+      end
+    else
+      impact 0.5
+      describe 'SG ingress posture (live read unavailable)' do
+        skip "network_firewall=#{fw} but SG posture could not be read live (#{sg.error}); SAF attestation supplies evidence."
+      end
+    end
+  else
+    impact 0.5
+    describe 'single firewall utility in use (4.1.2)' do
+      skip 'operational: the firewall front-end (firewalld vs standalone nftables vs iptables) is a consumer architecture decision; §4.2 (firewalld) and §4.3 (nftables) are mutually-exclusive and each guarded N/A on the non-chosen path.'
+    end
   end
 end

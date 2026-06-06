@@ -73,6 +73,21 @@ module PostureRouting
       stream: input("cloudwatch_audit_stream"),
     )
   end
+
+  # network_firewall axis (#4).
+  def firewall_posture
+    resolve_firewall(input("network_firewall"))
+  end
+
+  # true when AWS security groups are (one of) the ingress-enforcement points.
+  def fw_cloud?
+    %w[cloud_sg both].include?(firewall_posture)
+  end
+
+  # true when defense-in-depth is explicitly requested (assert host AND SG).
+  def fw_both?
+    firewall_posture == "both"
+  end
 end
 
 ::Inspec::Rule.include(PostureRouting)
