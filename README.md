@@ -76,3 +76,7 @@ Use `--only <cis-number>` to regenerate a single control.
 Currently scaffolded — every `describe` body is `skip 'TODO[scaffolder]: …'`.
 See the top-level `README.md` for the overall repo state and the
 sub-issue tracker for per-profile describe-fill progress.
+
+---
+
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=risk-sentinel_cis-rhel-9-v2.0.0)](https://sonarcloud.io/summary/new_code?id=risk-sentinel_cis-rhel-9-v2.0.0)
