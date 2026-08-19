@@ -1,0 +1,71 @@
+# =============================================================================
+# cis-rhel-9-baseline — reference inputs
+#
+#   cp inputs/example.yml inputs/mine.yml   # edit, then run ON the RHEL host:
+#   cinc-auditor exec . -t local:// --input-file inputs/mine.yml
+#   cinc-auditor exec . -t ssh://user@host --input-file inputs/mine.yml
+#
+# 298 controls, and only nine inputs — because most of CIS RHEL is "is this
+# setting correct", which has one right answer. What the inputs do describe is
+# the SHAPE of the host, and that changes which evidence path a control takes.
+# =============================================================================
+
+# ---- POSTURE AXES — fail-closed by design -----------------------------------
+#
+# These five route a control to the evidence that actually applies to your host.
+# Every default is the STRICTEST branch: leaving one unset enforces the full
+# on-host requirement rather than accepting an off-host equivalent.
+#
+# That is deliberate. An unset axis should over-assess, never under-assess — a
+# wrong default that quietly excused a control would be far worse than one that
+# produces a finding you then scope correctly.
+#
+# `auto` is available on each and detects where it can.
+
+# Is this host long-lived or replaced on every deploy?
+#   persistent  patched and audited in place — full on-host lifecycle controls
+#   ephemeral   replaced from an image; some on-host controls move to the image
+#               pipeline, evidenced via approved_ami_owners
+host_lifecycle: persistent
+
+# Where audit logs actually land.
+#   onbox   auditd / journald on the host, assessed directly
+#   offbox  shipped to a collector — see the cloudwatch_* inputs below
+#   both    on-host retention plus shipping
+log_pipeline: onbox
+
+# What enforces network policy for this host.
+#   host_nftables  firewalld / nftables on the host
+#   cloud_sg       security groups in front of it
+#   both
+network_firewall: host_nftables
+
+# How people reach the host.
+#   interactive     SSH with local or directory accounts — full SSH hardening
+#   federated_ssm   session-manager style, no inbound SSH
+access_model: interactive
+
+# What the host runs on.
+#   baremetal    full hardware and boot controls apply
+#   cloud_nitro  boot, firmware and some kernel controls are the provider's
+platform_class: baremetal
+
+# ---- OFF-BOX LOGGING — required when log_pipeline is offbox or both ---------
+
+# CloudWatch log group that auditd / journald ship to.
+# EMPTY = the off-box path cannot be verified, and the control says so rather
+# than accepting the claim.
+cloudwatch_audit_log_group: ''
+
+# Stream name for this host. EMPTY = the IMDS instance-id is used.
+cloudwatch_audit_stream: ''
+
+# How fresh live ingestion must be, in seconds, for shipping to count as working.
+cloudwatch_max_ingestion_lag: 3600
+
+# ---- IMAGE PROVENANCE — required when host_lifecycle is ephemeral -----------
+
+# AWS account IDs whose AMIs are approved as immutable image sources.
+# EMPTY = image provenance is unverified, and the controls that would have moved
+# to the image pipeline stay on the host path instead.
+approved_ami_owners: []
