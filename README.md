@@ -1,6 +1,6 @@
 # cis-rhel-9-baseline
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=risk-sentinel_cis-rhel-9-v2.0.0)](https://sonarcloud.io/summary/new_code?id=risk-sentinel_cis-rhel-9-v2.0.0)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=risk-sentinel_cis-rhel-9-baseline)](https://sonarcloud.io/summary/new_code?id=risk-sentinel_cis-rhel-9-baseline)
 
 InSpec / CINC Auditor profile validating a **Red Hat Enterprise Linux 9** host
 against the **CIS RHEL 9 Benchmark v2.0.0** — 298 controls across filesystem,
