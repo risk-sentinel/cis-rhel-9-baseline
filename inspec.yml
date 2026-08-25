@@ -1,8 +1,8 @@
 name: cis-rhel-9-v2.0.0
 title: CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0
-maintainer: SPARC Platform Engineering
-copyright: SPARC Platform Engineering
-copyright_email: platform@sparc.example
+maintainer: Risk Sentinel
+copyright: Risk Sentinel
+copyright_email: support@risk-sentinel.org
 license: Apache-2.0
 summary: |
   Validates hosts against CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0.
