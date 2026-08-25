@@ -44,14 +44,18 @@ on:
         default: runtime
       target_uri:
         description: >-
-          InSpec transport for the scan. `aws://` for cloud APIs, `local://` on a
-          host running the thing being assessed, `ssh://user@host` for a remote one.
+          InSpec transport for the scan. `local://` when the job runs on the host
+          being assessed — including a scan driven by `aws ssm send-command` —
+          and `ssh://user@host` to reach a host over SSH. There is no `ssm://`
+          transport: the auditor image carries train's local, ssh, winrm, aws,
+          habitat, kubernetes and rest transports only, so SSM-managed fleets run
+          the profile on the instance and keep `local://`.
         type: string
-        default: 'ssh://'
+        default: 'local://'
       scan_mode:
         description: 'What the scanner was told to do — recorded, self-asserted.'
         type: string
-        default: 'ssh:// read-only'
+        default: 'local:// read-only'
       profile_name:
         type: string
         required: true

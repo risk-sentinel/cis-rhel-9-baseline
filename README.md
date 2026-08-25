@@ -19,11 +19,33 @@ units, sysctl values, file permissions, PAM and SSH configuration:
 # on the host
 cinc-auditor exec . -t local:// --input-file inputs/mine.yml
 
-# remotely
+# remotely, over SSH
 cinc-auditor exec . -t ssh://user@host --input-file inputs/mine.yml
 ```
 
 Root, or an account able to read the audit and PAM configuration.
+
+### SSM-managed hosts
+
+**There is no `ssm://` transport.** The auditor image carries train's `local`,
+`ssh`, `winrm`, `aws`, `habitat`, `kubernetes` and `rest` transports and no SSM
+plugin, so a host reachable only through Systems Manager — no inbound SSH, which
+is the usual hardened posture — is scanned by running the profile *on the
+instance* and keeping `-t local://`:
+
+```bash
+aws ssm send-command \
+  --instance-ids i-0123456789abcdef0 \
+  --document-name AWS-RunShellScript \
+  --parameters 'commands=["cd /opt/cis-rhel-9-baseline && cinc-auditor exec . -t local:// --input-file inputs/mine.yml --reporter json:/tmp/results.json"]'
+```
+
+Run it as root, then retrieve `/tmp/results.json` and feed it to the same
+conversion steps the CI templates use. This is the path the profile was
+exec-validated on.
+
+Because the scan runs on the instance either way, `target_uri` defaults to
+`local://`; set `ssh://user@host` only when the runner reaches the host over SSH.
 
 ---
 
