@@ -54,7 +54,7 @@ control 'C-6.2.2.1.3' do
   tag implementation_status: 'implemented'
 
   # log_pipeline axis (#4): off-box forwarding/retention is proven by durable CloudWatch
-  # ingestion (SPARC ships via the CloudWatch agent); onbox => logs retained on-box (N/A).
+  # ingestion (e.g. via the CloudWatch agent); onbox => logs retained on-box (N/A).
   if log_offbox?
     impact 0.5
     cwl = cw_ingestion

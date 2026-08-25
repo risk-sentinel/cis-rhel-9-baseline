@@ -6,7 +6,7 @@
 # AMI, rather than by runtime AIDE scanning. This resource reads the AMI id from IMDS
 # and ec2:DescribeImages so a control can positively assert that provenance.
 #
-# Requires ec2:DescribeImages on the instance role (sparc-iac#368). When the
+# Requires ec2:DescribeImages on the instance role. When the
 # gem/creds/IAM/IMDS are absent, available? is false and the control falls back to its
 # SAF attestation. See AwsEvidenceBase.
 

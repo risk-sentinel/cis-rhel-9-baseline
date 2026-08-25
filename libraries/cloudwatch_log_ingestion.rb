@@ -8,7 +8,7 @@
 # being generated and ingested, recently, for this host. (Level 1 = group exists;
 # Level 3 = content pattern; Level 4 = closed-loop probe — future opt-ins.)
 #
-# Requires logs:DescribeLogStreams on the instance role (sparc-iac#368). A missing gem /
+# Requires logs:DescribeLogStreams on the instance role. A missing gem /
 # creds / IAM / log group => available?=false + error, and the control falls back to its
 # SAF attestation. See AwsEvidenceBase.
 

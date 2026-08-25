@@ -9,7 +9,7 @@
 # interactive boot path (objective met by the platform) rather than blindly skipping
 # the bootloader-password check.
 #
-# Requires ec2:GetSerialConsoleAccessStatus on the instance role (sparc-iac#368).
+# Requires ec2:GetSerialConsoleAccessStatus on the instance role.
 # When the gem/creds/IAM are absent, available? is false and the control falls back to
 # its SAF attestation. See AwsEvidenceBase.
 
