@@ -53,7 +53,7 @@ control 'C-1.1.2.1.4' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # host_lifecycle axis (#4): assert noexec where /tmp is a distinct mount (incl. tmpfs);
+  # host_lifecycle axis: assert noexec where /tmp is a distinct mount (incl. tmpfs);
   # ephemeral renders N/A when /tmp is folded into root. See PostureRouting#fs_na?.
   if fs_na?('/tmp')
     impact 0.0

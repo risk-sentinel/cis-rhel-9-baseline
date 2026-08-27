@@ -77,7 +77,7 @@ control 'C-4.2.1' do
   tag implementation_status: 'alternative'
   tag attestation_category:  'operational'
 
-  # network_firewall axis (#4): under cloud_sg/both, "drop unnecessary services/ports" is
+  # network_firewall axis: under cloud_sg/both, "drop unnecessary services/ports" is
   # the security group's job — assert default-deny (no world-open ports) as positive
   # evidence and enumerate any exposure. host_nftables keeps the workload-policy attestation.
   if fw_cloud?

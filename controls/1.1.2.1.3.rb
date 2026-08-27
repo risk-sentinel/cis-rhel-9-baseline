@@ -53,7 +53,7 @@ control 'C-1.1.2.1.3' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # host_lifecycle axis (#4): assert nosuid where /tmp is a distinct mount; ephemeral
+  # host_lifecycle axis: assert nosuid where /tmp is a distinct mount; ephemeral
   # renders N/A when /tmp is folded into root. See PostureRouting#fs_na?.
   if fs_na?('/tmp')
     impact 0.0

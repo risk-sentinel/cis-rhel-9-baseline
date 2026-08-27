@@ -46,7 +46,7 @@ control 'C-5.2.4' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # access_model axis (#4): interactive requires a sudo password; federated_ssm gates
+  # access_model axis: interactive requires a sudo password; federated_ssm gates
   # access/escalation at the IAM/SSM layer, so NOPASSWD is acceptable ONLY while the
   # boundary holds (ssm-agent running + direct root SSH disabled) — assert that boundary.
   if access_federated?

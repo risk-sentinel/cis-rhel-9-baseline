@@ -42,7 +42,7 @@ control 'C-4.1.1' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # network_firewall axis (#4): under cloud_sg the host firewall is not the ingress
+  # network_firewall axis: under cloud_sg the host firewall is not the ingress
   # enforcer (AWS security groups are — see 4.3.3), so a host nftables package is N/A.
   if firewall_posture == 'cloud_sg'
     impact 0.0

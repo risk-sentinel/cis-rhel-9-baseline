@@ -46,7 +46,7 @@ module PostureRouting
     d == "auto" ? "interactive" : d
   end
 
-  # host_lifecycle axis (#4) — dynamic §1.1.2 filesystem-isolation routing keyed off the
+  # host_lifecycle axis — dynamic §1.1.2 filesystem-isolation routing keyed off the
   # ACTUAL mount state, not just the flag. True => this path's separate-mount isolation
   # is Not Applicable: it is folded into root AND the consumer declared an ephemeral
   # lifecycle. In every other case the strict assertion runs:
@@ -59,7 +59,7 @@ module PostureRouting
     !mount(path).mounted? && resolve_host_lifecycle(input("host_lifecycle")) == "ephemeral"
   end
 
-  # log_pipeline axis (#4): true when logs are shipped off-box (offbox or both), so a
+  # log_pipeline axis: true when logs are shipped off-box (offbox or both), so a
   # control should positively assert durable CloudWatch ingestion rather than (or in
   # addition to) the on-box mechanism.
   def log_offbox?
@@ -74,7 +74,7 @@ module PostureRouting
     )
   end
 
-  # network_firewall axis (#4).
+  # network_firewall axis.
   def firewall_posture
     resolve_firewall(input("network_firewall"))
   end
@@ -89,7 +89,7 @@ module PostureRouting
     firewall_posture == "both"
   end
 
-  # access_model axis (#4).
+  # access_model axis.
   def access_federated?
     resolve_access_model(input("access_model")) == "federated_ssm"
   end

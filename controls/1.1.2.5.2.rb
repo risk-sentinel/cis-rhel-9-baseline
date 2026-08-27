@@ -53,7 +53,7 @@ control 'C-1.1.2.5.2' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # host_lifecycle axis (#4): assert nodev where /var/tmp is a distinct mount; ephemeral
+  # host_lifecycle axis: assert nodev where /var/tmp is a distinct mount; ephemeral
   # renders N/A when /var/tmp is folded into root. See PostureRouting#fs_na?.
   if fs_na?('/var/tmp')
     impact 0.0

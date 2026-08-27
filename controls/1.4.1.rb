@@ -52,7 +52,7 @@ control 'C-1.4.1' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # platform axis (#4): the bootloader password defends the *interactive* boot path.
+  # platform axis: the bootloader password defends the *interactive* boot path.
   # On Nitro that path is the account-level EC2 Serial Console (disabled by default and
   # the only way in — there is no physical console), so we prove its state rather than
   # assume it. baremetal (strict default) keeps the original assertion unchanged.
