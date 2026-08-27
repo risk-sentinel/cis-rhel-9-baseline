@@ -34,11 +34,14 @@ spec:
       description: Evidence class recorded in the audit record — runtime, sast, dast.
       default: runtime
     target_uri:
-      description: InSpec transport — aws://, local://, or ssh://user@host.
-      default: "ssh://"
+      description: >-
+        InSpec transport. `local://` when the job runs on the host being
+        assessed, including via `aws ssm send-command`; `ssh://user@host` for a
+        remote host. There is no `ssm://` transport in the auditor image.
+      default: "local://"
     scan_mode:
       description: What the scanner was told to do — recorded, self-asserted.
-      default: "ssh:// read-only"
+      default: "local:// read-only"
     profile_name:
       description: Value of `name:` in the profile's inspec.yml.
     profile_version:
