@@ -76,7 +76,7 @@ control 'C-6.2.3.6' do
   tag implementation_status: 'implemented'
 
   # log_pipeline axis (#4): off-box forwarding is proven by durable CloudWatch ingestion
-  # (SPARC ships via the CloudWatch agent, not rsyslog-remote); onbox => not forwarding (N/A).
+  # (e.g. the CloudWatch agent rather than rsyslog-remote); onbox => not forwarding (N/A).
   if log_offbox?
     impact 0.5
     cwl = cw_ingestion

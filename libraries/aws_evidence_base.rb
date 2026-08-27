@@ -9,7 +9,7 @@
 # directly, in-process, relying on the SDK default credential chain (the EC2 instance
 # profile via IMDS).
 #
-# Deployment assumption: the scan runs ON the target instance (the SPARC runner /
+# Deployment assumption: the scan runs ON the target instance (a self-hosted runner /
 # honeypot `-t local://` model), so the in-process SDK sees the host's instance role
 # and region. This is the supported model for the cloud-evidence branches.
 #

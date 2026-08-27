@@ -8,7 +8,7 @@
 #
 # Reads the instance's SG ids (ec2:DescribeInstances on the IMDS instance-id) then their
 # ingress rules (ec2:DescribeSecurityGroups). Requires those two on the instance role
-# (sparc-iac#368). Missing gem/creds/IAM/IMDS => available?=false => SAF fallback.
+# Missing gem/creds/IAM/IMDS => available?=false => SAF fallback.
 
 # Load the base via Ruby require so AwsEvidenceBase resolves regardless of InSpec's
 # alphabetical library-load order (the bare reference NameErrors at exec).

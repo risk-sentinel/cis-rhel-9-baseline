@@ -1,7 +1,7 @@
 # cis-rhel-9 — verification coverage matrix
 
 Profile authored from `CIS_Red_Hat_Enterprise_Linux_9_Benchmark_v2.0.0_xccdf.xml`
-(sparc-validate#169). Principle: **verify the technical state wherever the host can
+. Principle: **verify the technical state wherever the host can
 answer it; never accept a human attestation as proof of a checkable fact.**
 
 Unlike the AWS profiles, this is a **host-OS** profile (`supports: platform: os`) —
@@ -36,11 +36,11 @@ Cloud-evidence resources use the AWS SDK directly via the instance role (IMDS) �
 inspec-aws, which a `-t local://` host scan cannot load — and are lazy/guarded so a
 non-AWS consumer degrades to the SAF fallback rather than failing to load. They need
 read grants on the scan role (`ec2:GetSerialConsoleAccessStatus`, `ec2:DescribeImages`,
-`logs:DescribeLogStreams`, `ec2:DescribeInstances`/`DescribeSecurityGroups` — sparc-iac#368).
+`logs:DescribeLogStreams`, `ec2:DescribeInstances`/`DescribeSecurityGroups`).
 **13 controls that were operational attestations in strict mode become positive
-evidence** under the SPARC posture (the 9 §6.2 forwarding controls + 4.1.2 / 4.2.1 +
-5.4.2.4, with 5.4.2.5 N/A). The consumer (sparc-validate overlay) declares the posture
-and supplies SAF attestations for any axis without a live read.
+evidence** under the cloud-evidence posture (the 9 §6.2 forwarding controls +
+4.1.2 / 4.2.1 + 5.4.2.4, with 5.4.2.5 N/A). The consuming overlay declares the
+posture and supplies SAF attestations for any axis without a live read.
 
 ## Disposition
 
@@ -66,8 +66,8 @@ These are verified when applicable and render **Not Applicable** (`impact 0.0` +
 `only_if`, the InSpec-7-safe two-statement form — `impact(<ternary>)` crashes the
 InSpec 7 AST analyzer) when the precondition is absent:
 
-- **§1.8.2–1.8.10 (GDM, 9):** `only_if { package('gdm').installed? }`. On the headless
-  SPARC ASG (GDM removed per 1.8.1) these are N/A.
+- **§1.8.2–1.8.10 (GDM, 9):** `only_if { package('gdm').installed? }`. On a headless
+  host (GDM removed per 1.8.1) these are N/A.
 - **§4.2.2 firewalld loopback:** `only_if { service('firewalld').running? }`.
 - **§4.3.1–4.3.4 nftables (4):** `only_if { !service('firewalld').running? }`.
   §4.2 (firewalld) and §4.3 (nftables) are mutually exclusive — exactly one path is
