@@ -1,7 +1,7 @@
 # encoding: UTF-8
 #
 # host_posture — host-visible signals used to auto-resolve deployment-posture axes
-# (issue #4, posture-aware evidence routing).
+# (posture-aware evidence routing).
 #
 # Pure host reads only (DMI / service state / nftables). No AWS API calls, no inputs.
 # Every probe is fail-soft: a missing file / absent service / unprivileged read

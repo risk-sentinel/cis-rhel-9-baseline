@@ -1,7 +1,7 @@
 # encoding: UTF-8
 #
 # cloudwatch_log_ingestion — live evidence that logs are ACTUALLY landing in CloudWatch
-# (issue #4, log_pipeline axis), not merely that the host is configured to ship them.
+# (log_pipeline axis), not merely that the host is configured to ship them.
 #
 # Level-2 assurance: reads the host's stream via logs:DescribeLogStreams and reports
 # whether the most recent ingestion is within a freshness window — proving events are

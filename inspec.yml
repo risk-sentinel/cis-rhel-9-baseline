@@ -13,9 +13,9 @@ inspec_version: '>= 5.0'
 supports:
   - platform: os
 
-# Posture axes — issue #4 (posture-aware evidence routing).
+# Posture axes — posture-aware evidence routing.
 # Strict (fail-closed) defaults: unset => strictest branch => every objective is
-# enforced on the host path, exactly as the pre-#4 profile behaved. A consumer
+# enforced on the host path, exactly as the strict-default profile behaved. A consumer
 # declares a non-strict posture to route a control's assertion to its
 # compensating-mechanism evidence (cloud SG, off-box logging, AMI provenance,
 # federated access). 'auto' resolves host-visible signals but never leaves the

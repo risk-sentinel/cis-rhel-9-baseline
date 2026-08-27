@@ -9,7 +9,7 @@ the overwhelming majority of CIS RHEL-9 controls are directly assertable against
 running host via stock inspec-core resources, so verification is the default and
 attestation is the narrow exception.
 
-## Posture-aware evidence routing (#4)
+## Posture-aware evidence routing
 
 Controls whose objective can be met on more than one deployment path no longer
 `skip` when the host alone can't satisfy them — they **branch their assertion on a
@@ -21,7 +21,7 @@ Five posture inputs (declared in `inspec.yml`) drive this, each with a **strict,
 fail-closed default** — unset/`auto` resolves to the strictest host branch, so a
 mis-declared scan over-reports rather than silently passing. The **Disposition /
 Attestation tables below describe that strict corner** (`persistent / onbox /
-host_nftables / interactive / baremetal`), which is byte-identical to the pre-#4
+host_nftables / interactive / baremetal`), which is byte-identical to the strict-default
 profile. Declaring a non-strict posture re-routes the affected controls:
 
 | Axis (input) | Non-strict value | Re-routes (controls) | Compensating evidence asserted |
