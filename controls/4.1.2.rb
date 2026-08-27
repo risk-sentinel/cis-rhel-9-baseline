@@ -142,7 +142,7 @@ control 'C-4.1.2' do
   tag implementation_status: 'alternative'
   tag attestation_category:  'operational'
 
-  # network_firewall axis (#4): under cloud_sg/both the single ingress-governing utility
+  # network_firewall axis: under cloud_sg/both the single ingress-governing utility
   # is the AWS security group — assert its default-deny posture (positive evidence
   # replacing the host-front-end attestation). host_nftables keeps the attestation.
   if fw_cloud?

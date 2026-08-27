@@ -52,7 +52,7 @@ control 'C-1.1.2.2.2' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # host_lifecycle axis (#4): assert nodev where /dev/shm is a distinct mount; ephemeral
+  # host_lifecycle axis: assert nodev where /dev/shm is a distinct mount; ephemeral
   # renders N/A when /dev/shm is folded into root. See PostureRouting#fs_na?.
   if fs_na?('/dev/shm')
     impact 0.0

@@ -164,7 +164,7 @@ control 'C-6.1.3' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # host_lifecycle axis (#4): protecting the audit tools inside an AIDE config is N/A on
+  # host_lifecycle axis: protecting the audit tools inside an AIDE config is N/A on
   # an ephemeral/immutable instance (no runtime AIDE) — integrity is established at image
   # build and asserted via AMI provenance (6.1.1). persistent keeps the assertion.
   if resolve_host_lifecycle(input('host_lifecycle')) == 'ephemeral'

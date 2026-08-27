@@ -95,7 +95,7 @@ control 'C-6.1.2' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # host_lifecycle axis (#4): a scheduled runtime integrity scan is N/A on an
+  # host_lifecycle axis: a scheduled runtime integrity scan is N/A on an
   # ephemeral/immutable instance — integrity is established at image build and asserted
   # via AMI provenance (6.1.1). persistent keeps the scheduled-check assertion unchanged.
   if resolve_host_lifecycle(input('host_lifecycle')) == 'ephemeral'

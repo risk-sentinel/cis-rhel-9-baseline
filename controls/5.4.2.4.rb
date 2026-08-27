@@ -57,7 +57,7 @@ control 'C-5.4.2.4' do
   tag implementation_status: 'alternative'
   tag attestation_category:  'operational'
 
-  # access_model axis (#4): federated_ssm makes root access controllable by positive
+  # access_model axis: federated_ssm makes root access controllable by positive
   # evidence — the SSM/IAM layer gates access and direct root SSH is closed. interactive
   # keeps the IAM-governance attestation (verified surface is 5.2.7 su + 5.1.20).
   if access_federated?

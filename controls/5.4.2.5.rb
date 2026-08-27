@@ -73,7 +73,7 @@ control 'C-5.4.2.5' do
   tag implementation_status: 'alternative'
   tag attestation_category:  'operational'
 
-  # access_model axis (#4): root's effective PATH only exists in an interactive root
+  # access_model axis: root's effective PATH only exists in an interactive root
   # session. Under federated_ssm there is no interactive root login (access is via SSM),
   # so this is N/A. interactive keeps the attestation (PATH unreadable to the scanner).
   if access_federated?

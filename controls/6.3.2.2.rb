@@ -45,7 +45,7 @@ control 'C-6.3.2.2' do
     its('stdout') { should match(/\S/) }
   end
 
-  # log_pipeline axis (#4): defense-in-depth — when logs ship off-box, also prove durable
+  # log_pipeline axis: defense-in-depth — when logs ship off-box, also prove durable
   # CloudWatch ingestion (the on-box buffer above guards against ship failures).
   if log_offbox?
     cwl = cw_ingestion

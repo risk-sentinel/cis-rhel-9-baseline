@@ -53,7 +53,7 @@ control 'C-1.1.2.6.4' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # host_lifecycle axis (#4): assert noexec where /var/log is a distinct mount; ephemeral
+  # host_lifecycle axis: assert noexec where /var/log is a distinct mount; ephemeral
   # renders N/A when /var/log is folded into root. See PostureRouting#fs_na?.
   if fs_na?('/var/log')
     impact 0.0

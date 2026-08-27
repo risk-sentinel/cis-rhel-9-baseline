@@ -46,7 +46,7 @@ control 'C-1.1.2.3.1' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # host_lifecycle axis (#4): strict when /home is a distinct mount; ephemeral renders
+  # host_lifecycle axis: strict when /home is a distinct mount; ephemeral renders
   # N/A when /home is folded into root. See PostureRouting#fs_na?.
   if fs_na?('/home')
     impact 0.0

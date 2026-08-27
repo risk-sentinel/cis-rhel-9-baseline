@@ -57,7 +57,7 @@ control 'C-6.1.1' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # host_lifecycle axis (#4): on ephemeral/immutable instances, filesystem integrity is
+  # host_lifecycle axis: on ephemeral/immutable instances, filesystem integrity is
   # established at image-build time and guaranteed by launching only from an approved
   # AMI, not by runtime AIDE. Route to AMI provenance (live ec2:DescribeImages); persistent
   # keeps the AIDE-installed assertion unchanged.

@@ -65,7 +65,7 @@ control 'C-4.3.3' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # network_firewall axis (#4): the default-deny ingress objective routes to where it is
+  # network_firewall axis: the default-deny ingress objective routes to where it is
   # enforced. cloud_sg => assert the SG default-deny posture; both => assert host nftables
   # default-drop AND the SG (defense-in-depth); host_nftables (strict default) => the
   # original host nftables assertion unchanged.

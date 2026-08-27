@@ -53,7 +53,7 @@ control 'C-1.1.2.7.3' do
   tag cis_scored:            true
   tag implementation_status: 'implemented'
 
-  # host_lifecycle axis (#4): assert nosuid where /var/log/audit is a distinct mount; ephemeral
+  # host_lifecycle axis: assert nosuid where /var/log/audit is a distinct mount; ephemeral
   # renders N/A when /var/log/audit is folded into root. See PostureRouting#fs_na?.
   if fs_na?('/var/log/audit')
     impact 0.0
