@@ -1,6 +1,6 @@
 # encoding: UTF-8
 #
-# aws_instance_identity — scan-target provenance for the assessor (issue #4 follow-on).
+# aws_instance_identity — scan-target provenance for the assessor.
 # Captures "what was assessed" so the HDF carries the instance identity alongside the
 # findings, rather than the assessor having to reconcile it from a separate record.
 #

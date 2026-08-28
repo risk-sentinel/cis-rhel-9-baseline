@@ -1,6 +1,6 @@
 # encoding: UTF-8
 #
-# ami_provenance — provenance of the running instance's AMI (issue #4, host_lifecycle
+# ami_provenance — provenance of the running instance's AMI (host_lifecycle
 # axis). On an ephemeral/immutable instance, filesystem integrity is established at
 # image-build time and guaranteed by launching only from an organization-controlled
 # AMI, rather than by runtime AIDE scanning. This resource reads the AMI id from IMDS

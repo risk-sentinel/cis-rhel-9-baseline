@@ -1,7 +1,7 @@
 # encoding: UTF-8
 #
 # PostureRouting — maps a declared posture axis value (or 'auto') to a concrete
-# branch a control routes its assertion on (issue #4).
+# branch a control routes its assertion on.
 #
 # Included into every control via ::Inspec::Rule.include. The leading `::` is
 # required under InSpec 7: a bare `Inspec::Rule.include` raises an

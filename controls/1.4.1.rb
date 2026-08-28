@@ -83,7 +83,7 @@ control 'C-1.4.1' do
       end
     end
   else
-    # baremetal (strict default) — unchanged pre-#4 behavior.
+    # baremetal (strict default) — unchanged strict-default behavior.
     impact 0.5
     describe command(%q{grep -P -- '^\h*(set\h+superusers|GRUB2_PASSWORD)' /boot/grub2/user.cfg /boot/grub2/grub.cfg 2>/dev/null}) do
       its('stdout') { should match(/\S/) }

@@ -1,7 +1,7 @@
 # encoding: UTF-8
 #
 # aws_security_group_posture — live ingress posture of the instance's security groups
-# (issue #4, network_firewall axis). When ingress is enforced by AWS SGs rather than a
+# (network_firewall axis). When ingress is enforced by AWS SGs rather than a
 # host firewall, this asserts the cloud equivalent of "default-deny + drop unnecessary
 # ports": no ingress rule opens a port to the world (0.0.0.0/0 or ::/0), and enumerates
 # whatever world-open ports exist as evidence of the exposure surface.

@@ -1,7 +1,7 @@
 # encoding: UTF-8
 #
 # aws_ec2_console_posture — live evidence for whether an interactive boot path exists
-# on an EC2 Nitro instance (issue #4, platform axis).
+# on an EC2 Nitro instance (platform axis).
 #
 # On Nitro there is no physical console; the only way to interrupt the bootloader is
 # the account-level EC2 Serial Console, which is disabled by default. This resource

@@ -1,6 +1,6 @@
 # encoding: UTF-8
 #
-# AwsEvidenceBase — base for the posture cloud-evidence resources (issue #4).
+# AwsEvidenceBase — base for the posture cloud-evidence resources.
 #
 # Each concrete resource extends this, lazily requires its aws-sdk-* gem, and
 # self-initializes a client from the instance-role credentials. This is deliberately
