@@ -59,6 +59,7 @@ control 'C-2.1.21' do
     - Depending on your environment you may have an alternative MTA installed such as sendmail. If this is the case consult the documentation for your installed MTA to configure the recommended state.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']
   tag cis_rid:               '2.1.21'

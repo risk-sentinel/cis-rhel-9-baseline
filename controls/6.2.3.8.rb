@@ -60,6 +60,7 @@ control 'C-6.2.3.8' do
     }
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AC-2 (2)', 'AU-4']
   tag cci:                   ['CCI-001682', 'CCI-001848']
   tag cis_rid:               '6.2.3.8'

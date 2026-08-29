@@ -43,6 +43,7 @@ control 'C-6.2.1.4' do
     4. Return to this recommendation to ensure only one logging system is in use
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']
   tag cis_rid:               '6.2.1.4'

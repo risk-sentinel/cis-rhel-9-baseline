@@ -103,6 +103,7 @@ control 'C-1.5.2' do
     Note: If these settings appear in a canonically later file, or later in the same file, these settings will be overwritten
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']
   tag cis_rid:               '1.5.2'

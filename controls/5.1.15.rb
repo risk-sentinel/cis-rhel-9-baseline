@@ -49,6 +49,7 @@ control 'C-5.1.15' do
     Note: First occurrence of an option takes precedence, `Match` set statements withstanding. If `Include` locations are enabled, used, and order of precedence is understood in your environment, the entry may be created in a file in `Include` location.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AC-2 f', 'IA-2 (2)', 'AU-2 a']
   tag cci:                   ['CCI-000011', 'CCI-000766', 'CCI-000123']
   tag cis_rid:               '5.1.15'

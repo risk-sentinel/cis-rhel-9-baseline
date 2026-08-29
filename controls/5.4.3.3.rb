@@ -163,6 +163,7 @@ control 'C-5.4.3.3' do
     - If the `pam_umask.so` module is going to be used to set `umask`, ensure that it's not being overridden by another setting. Refer to the PAM_UMASK(8) man page for more information
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']
   tag cis_rid:               '5.4.3.3'

@@ -31,6 +31,7 @@ control 'C-7.2.4' do
     Based on the results of the audit script, establish unique UIDs and review all files owned by the shared UIDs to determine which UID they are supposed to belong to.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['CM-6 b']
   tag cci:                   ['CCI-000366']
   tag cis_rid:               '7.2.4'

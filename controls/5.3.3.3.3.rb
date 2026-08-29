@@ -84,6 +84,7 @@ control 'C-5.3.3.3.3' do
     ```
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['SC-28', 'CM-8 a 1']
   tag cci:                   ['CCI-001199', 'CCI-000389']
   tag cis_rid:               '5.3.3.3.3'

@@ -77,6 +77,7 @@ control 'C-4.3.1' do
     Note: use the `add` command if the `create` command returns an error due to the chain already existing.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['SC-7 a', 'SC-18 (4)']
   tag cci:                   ['CCI-001097', 'CCI-002460']
   tag cis_rid:               '4.3.1'

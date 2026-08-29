@@ -58,6 +58,7 @@ control 'C-7.1.12' do
     Remove or set ownership and group ownership of these files and/or directories to an active user on the system as appropriate.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']
   tag cis_rid:               '7.1.12'

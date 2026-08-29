@@ -70,6 +70,7 @@ control 'C-5.1.7' do
     - It is easier to manage an allow list than a deny list. In a deny list, you could potentially add a user or group and forget to add it to the deny list.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AC-3', 'AC-11 b']
   tag cci:                   ['CCI-000213', 'CCI-000056']
   tag cis_rid:               '5.1.7'

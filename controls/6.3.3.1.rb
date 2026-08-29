@@ -71,6 +71,7 @@ control 'C-6.3.3.1' do
     ```
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['CM-7 a', 'AU-3 a']
   tag cci:                   ['CCI-000381', 'CCI-000130']
   tag cis_rid:               '6.3.3.1'

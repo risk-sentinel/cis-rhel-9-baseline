@@ -44,6 +44,7 @@ control 'C-6.2.1.3' do
     Note: If these settings appear in a canonically later file, or later in the same file, the setting will be overwritten
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AC-2 f', 'IA-2 (2)', 'AU-2 a']
   tag cci:                   ['CCI-000011', 'CCI-000766', 'CCI-000123']
   tag cis_rid:               '6.2.1.3'

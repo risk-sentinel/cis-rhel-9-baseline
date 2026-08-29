@@ -67,6 +67,7 @@ control 'C-3.1.3' do
     Note: A reboot may be required
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']
   tag cis_rid:               '3.1.3'

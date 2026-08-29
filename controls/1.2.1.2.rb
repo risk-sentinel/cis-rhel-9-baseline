@@ -48,6 +48,7 @@ control 'C-1.2.1.2' do
     ```
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['SI-12', 'SI-2 a']
   tag cci:                   ['CCI-001678', 'CCI-001225']
   tag cis_rid:               '1.2.1.2'

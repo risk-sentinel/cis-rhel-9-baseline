@@ -32,6 +32,7 @@ control 'C-5.4.1.6' do
     Investigate any users with a password change date in the future and correct them.  Locking the account, expiring the password, or resetting the password manually may be appropriate.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['SC-7 a', 'IA-5 (1) (e)']
   tag cci:                   ['CCI-001097', 'CCI-000200']
   tag cis_rid:               '5.4.1.6'

@@ -59,6 +59,7 @@ control 'C-1.2.1.3' do
     Edit any failing files in `/etc/yum.repos.d/*` and set all instances starting with `repo_gpgcheck` to `1`.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['SI-12', 'SI-2 a']
   tag cci:                   ['CCI-001678', 'CCI-001225']
   tag cis_rid:               '1.2.1.3'

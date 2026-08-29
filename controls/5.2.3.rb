@@ -44,6 +44,7 @@ control 'C-5.2.3' do
     - Using a consistent number of leading zeroes in the file names can be used to avoid such problems.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['IA-2 (2)', 'AU-3 a']
   tag cci:                   ['CCI-000766', 'CCI-000130']
   tag cis_rid:               '5.2.3'

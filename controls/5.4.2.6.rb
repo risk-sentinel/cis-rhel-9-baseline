@@ -55,6 +55,7 @@ control 'C-5.4.2.6' do
     Edit `/root/.bash_profile` and `/root/.bashrc` and remove, comment out, or update any line with `umask` to be `0027` or more restrictive.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AC-3', 'AC-8 a']
   tag cci:                   ['CCI-000213', 'CCI-000051']
   tag cis_rid:               '5.4.2.6'

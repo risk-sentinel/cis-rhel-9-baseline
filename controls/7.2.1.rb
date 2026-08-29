@@ -37,6 +37,7 @@ control 'C-7.2.1' do
     Investigate to determine if the account is logged in and what it is being used for, to determine if it needs to be forced off.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['SC-28', 'CM-8 a 1']
   tag cci:                   ['CCI-001199', 'CCI-000389']
   tag cis_rid:               '7.2.1'

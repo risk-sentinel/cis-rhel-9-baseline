@@ -61,6 +61,7 @@ control 'C-6.2.2.2' do
     ```
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['IA-2 (2)', 'AU-2 a']
   tag cci:                   ['CCI-000766', 'CCI-000123']
   tag cis_rid:               '6.2.2.2'
