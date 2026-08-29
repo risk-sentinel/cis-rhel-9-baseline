@@ -48,6 +48,7 @@ control 'C-6.1.1' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['AU-2 a', 'SC-12 (3)']
+  tag nist_r4:               ['AU-2 a', 'SC-12 (3)']
   tag cci:                   ['CCI-000123', 'CCI-002447']
   tag cis_rid:               '6.1.1'
   tag cis_number:            '6.1.1'

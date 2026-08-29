@@ -77,6 +77,7 @@ control 'C-6.3.2.3' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['AU-2 a', 'AU-4']
+  tag nist_r4:               ['AU-2 a', 'AU-4']
   tag cci:                   ['CCI-000123', 'CCI-001848']
   tag cis_rid:               '6.3.2.3'
   tag cis_number:            '6.3.2.3'

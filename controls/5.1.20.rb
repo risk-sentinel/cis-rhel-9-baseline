@@ -43,6 +43,7 @@ control 'C-5.1.20' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['AC-11 b', 'AC-2 c']
+  tag nist_r4:               ['AC-11 b', 'AC-2 c']
   tag cci:                   ['CCI-000056', 'CCI-002113']
   tag cis_rid:               '5.1.20'
   tag cis_number:            '5.1.20'

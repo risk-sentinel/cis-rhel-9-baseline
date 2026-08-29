@@ -113,6 +113,7 @@ control 'C-5.3.2.1' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['RA-5 a', 'CM-6 a']
+  tag nist_r4:               ['CM-6 a', 'RA-5 a']
   tag cci:                   ['CCI-001054', 'CCI-000363']
   tag cis_rid:               '5.3.2.1'
   tag cis_number:            '5.3.2.1'

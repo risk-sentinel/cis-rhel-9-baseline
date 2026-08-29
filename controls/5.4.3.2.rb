@@ -119,6 +119,7 @@ control 'C-5.4.3.2' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['AC-11 b', 'SA-11 e']
+  tag nist_r4:               ['AC-11 b', 'SA-11 e']
   tag cci:                   ['CCI-000056', 'CCI-003178']
   tag cis_rid:               '5.4.3.2'
   tag cis_number:            '5.4.3.2'

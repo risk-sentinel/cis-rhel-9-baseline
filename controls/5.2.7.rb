@@ -41,6 +41,7 @@ control 'C-5.2.7' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['AC-3', 'AC-2 a']
+  tag nist_r4:               ['AC-2 a', 'AC-3']
   tag cci:                   ['CCI-000213', 'CCI-002110']
   tag cis_rid:               '5.2.7'
   tag cis_number:            '5.2.7'

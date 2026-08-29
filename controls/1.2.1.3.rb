@@ -61,6 +61,7 @@ control 'C-1.2.1.3' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['SI-12', 'SI-2 a']
+  tag nist_r4:               ['SI-12', 'SI-2 a']
   tag cci:                   ['CCI-001678', 'CCI-001225']
   tag cis_rid:               '1.2.1.3'
   tag cis_number:            '1.2.1.3'

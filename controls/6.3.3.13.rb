@@ -107,6 +107,7 @@ control 'C-6.3.3.13' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['AC-2 f', 'AU-3 a']
+  tag nist_r4:               ['AC-2 f', 'AU-3']
   tag cci:                   ['CCI-000011', 'CCI-000130']
   tag cis_rid:               '6.3.3.13'
   tag cis_number:            '6.3.3.13'
