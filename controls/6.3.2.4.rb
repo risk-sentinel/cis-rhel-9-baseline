@@ -105,6 +105,7 @@ control 'C-6.3.2.4' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['AU-2 a', 'AU-4']
+  tag ksi:                   ['KSI-CMT-LMC', 'KSI-MLA-LET', 'KSI-MLA-OSM', 'KSI-MLA-RVL']
   tag nist_r4:               ['AU-2 a', 'AU-4']
   tag cci:                   ['CCI-000123', 'CCI-001848']
   tag cis_rid:               '6.3.2.4'

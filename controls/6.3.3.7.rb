@@ -125,6 +125,7 @@ control 'C-6.3.3.7' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['AU-3 a', 'SC-12 (3)']
+  tag ksi:                   ['KSI-MLA-OSM']
   tag nist_r4:               ['AU-3', 'SC-12 (3)']
   tag cci:                   ['CCI-000130', 'CCI-002447']
   tag cis_rid:               '6.3.3.7'

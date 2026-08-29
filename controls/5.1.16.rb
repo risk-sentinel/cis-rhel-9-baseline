@@ -43,6 +43,7 @@ control 'C-5.1.16' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['AU-3 a']
+  tag ksi:                   ['KSI-MLA-OSM']
   tag nist_r4:               ['AU-3']
   tag cci:                   ['CCI-000130']
   tag cis_rid:               '5.1.16'

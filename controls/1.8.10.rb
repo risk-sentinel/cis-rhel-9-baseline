@@ -35,6 +35,7 @@ control 'C-1.8.10' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
+  tag ksi:                   ['KSI-CMT-RMV', 'KSI-IAM-JIT']
   tag nist_r4:               ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']
   tag cis_rid:               '1.8.10'

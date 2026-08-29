@@ -60,6 +60,7 @@ control 'C-5.4.1.3' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['CM-6 a', 'SC-7 a']
+  tag ksi:                   ['KSI-CMT-LMC', 'KSI-CMT-RMV', 'KSI-CNA-ULN', 'KSI-MLA-EVC', 'KSI-SVC-ACM', 'KSI-SVC-EIS']
   tag nist_r4:               ['CM-6 a', 'SC-7 a']
   tag cci:                   ['CCI-000364', 'CCI-001097']
   tag cis_rid:               '5.4.1.3'

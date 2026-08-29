@@ -39,6 +39,7 @@ control 'C-7.2.1' do
   tag severity:              'medium'
   tag severity_source:       'unassessed'
   tag nist:                  ['SC-28', 'CM-8 a 1']
+  tag ksi:                   ['KSI-PIY-GIV', 'KSI-SVC-SIN']
   tag nist_r4:               ['CM-8 a 1', 'SC-28']
   tag cci:                   ['CCI-001199', 'CCI-000389']
   tag cis_rid:               '7.2.1'
