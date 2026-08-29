@@ -44,7 +44,10 @@ control 'C-4.3.2' do
     ```
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['SC-7 a', 'SC-18 (4)']
+  tag ksi:                   ['KSI-CNA-ULN', 'KSI-SVC-EIS']
+  tag nist_r4:               ['SC-18 (4)', 'SC-7 a']
   tag cci:                   ['CCI-001097', 'CCI-002460']
   tag cis_rid:               '4.3.2'
   tag cis_number:            '4.3.2'

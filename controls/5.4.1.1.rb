@@ -78,7 +78,10 @@ control 'C-5.4.1.1' do
     Warning: If a password has been set at system install or kickstart, the `last change date` field is not set, In this case, setting `PASS_MAX_DAYS` will immediately expire the password. One possible solution is to populate the `last change date` field through a command like: `chage -d \"$(date +%Y-%m-%d)\" root`
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['SC-7 a', 'IA-5 (1) (e)']
+  tag ksi:                   ['KSI-CNA-ULN', 'KSI-IAM-APM', 'KSI-SVC-EIS']
+  tag nist_r4:               ['IA-5 (1) (e)', 'SC-7 a']
   tag cci:                   ['CCI-001097', 'CCI-000200']
   tag cis_rid:               '5.4.1.1'
   tag cis_number:            '5.4.1.1'

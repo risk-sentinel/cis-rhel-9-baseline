@@ -148,7 +148,10 @@ control 'C-6.3.3.5' do
     ```
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AC-2 a', 'AU-3 a']
+  tag ksi:                   ['KSI-IAM-APM', 'KSI-IAM-JIT', 'KSI-IAM-SNU', 'KSI-IAM-SUS', 'KSI-MLA-OSM']
+  tag nist_r4:               ['AC-2 a', 'AU-3']
   tag cci:                   ['CCI-002110', 'CCI-000130']
   tag cis_rid:               '6.3.3.5'
   tag cis_number:            '6.3.3.5'

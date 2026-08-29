@@ -73,7 +73,10 @@ control 'C-1.3.1.6' do
     ```
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AC-3', 'SI-4 (11)']
+  tag ksi:                   ['KSI-IAM-APM', 'KSI-IAM-ELP', 'KSI-IAM-JIT']
+  tag nist_r4:               ['AC-3', 'SI-4 (11)']
   tag cci:                   ['CCI-000213', 'CCI-002668']
   tag cis_rid:               '1.3.1.6'
   tag cis_number:            '1.3.1.6'

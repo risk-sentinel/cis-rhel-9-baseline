@@ -99,7 +99,10 @@ control 'C-1.5.1' do
     Note: If these settings appear in a canonically later file, or later in the same file, these settings will be overwritten
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AU-4', 'SI-16']
+  tag ksi:                   ['KSI-CNA-MAT', 'KSI-MLA-OSM', 'KSI-PIY-RSD']
+  tag nist_r4:               ['AU-4', 'SI-16']
   tag cci:                   ['CCI-001848', 'CCI-002823']
   tag cis_rid:               '1.5.1'
   tag cis_number:            '1.5.1'

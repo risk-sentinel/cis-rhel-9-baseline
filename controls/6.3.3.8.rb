@@ -126,7 +126,10 @@ control 'C-6.3.3.8' do
     ```
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['CM-7 a', 'AU-3 a']
+  tag ksi:                   ['KSI-CMT-RMV', 'KSI-IAM-JIT', 'KSI-MLA-OSM']
+  tag nist_r4:               ['AU-3', 'CM-7 a']
   tag cci:                   ['CCI-000381', 'CCI-000130']
   tag cis_rid:               '6.3.3.8'
   tag cis_number:            '6.3.3.8'

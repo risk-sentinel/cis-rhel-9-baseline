@@ -153,7 +153,10 @@ control 'C-6.1.3' do
       - For security reasons DIRECTORY and each executable config file must be owned by the current user and must not be  group or world-writable.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['CM-6 b']
+  tag ksi:                   ['KSI-CMT-LMC', 'KSI-CMT-RMV', 'KSI-MLA-EVC', 'KSI-SVC-ACM']
+  tag nist_r4:               ['CM-6 b']
   tag cci:                   ['CCI-000366']
   tag cis_rid:               '6.1.3'
   tag cis_number:            '6.1.3'

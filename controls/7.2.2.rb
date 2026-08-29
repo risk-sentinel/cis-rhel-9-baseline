@@ -28,7 +28,10 @@ control 'C-7.2.2' do
     Also, check to see if the account is logged in and investigate what it is being used for to determine if it needs to be forced off.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['SC-7 a', 'IA-5 (1) (e)']
+  tag ksi:                   ['KSI-CNA-ULN', 'KSI-IAM-APM', 'KSI-SVC-EIS']
+  tag nist_r4:               ['IA-5 (1) (e)', 'SC-7 a']
   tag cci:                   ['CCI-001097', 'CCI-000200']
   tag cis_rid:               '7.2.2'
   tag cis_number:            '7.2.2'

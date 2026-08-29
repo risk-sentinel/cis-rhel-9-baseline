@@ -122,7 +122,10 @@ control 'C-3.3.9' do
     Note: If these settings appear in a canonically later file, or later in the same file, these settings will be overwritten
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AC-2 f', 'IA-2 (2)', 'AU-3 a']
+  tag ksi:                   ['KSI-IAM-APM', 'KSI-IAM-JIT', 'KSI-IAM-SNU', 'KSI-IAM-SUS', 'KSI-MLA-OSM']
+  tag nist_r4:               ['AC-2 f', 'AU-3', 'IA-2 (2)']
   tag cci:                   ['CCI-000011', 'CCI-000766', 'CCI-000130']
   tag cis_rid:               '3.3.9'
   tag cis_number:            '3.3.9'

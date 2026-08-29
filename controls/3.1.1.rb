@@ -54,7 +54,10 @@ control 'C-3.1.1' do
     Enable or disable IPv6 in accordance with system requirements and local site policy
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['CM-7 a', 'SI-4 (11)']
+  tag ksi:                   ['KSI-CMT-RMV', 'KSI-IAM-JIT']
+  tag nist_r4:               ['CM-7 a', 'SI-4 (11)']
   tag cci:                   ['CCI-000381', 'CCI-002668']
   tag cis_rid:               '3.1.1'
   tag cis_number:            '3.1.1'

@@ -111,7 +111,10 @@ control 'C-5.3.2.1' do
     This error is caused when the previous configuration was not created by authselect but by other tool or by manual changes and the `--force` option will be required to enable the authselect profile.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['RA-5 a', 'CM-6 a']
+  tag ksi:                   ['KSI-CMT-LMC', 'KSI-CMT-RMV', 'KSI-MLA-EVC', 'KSI-SCR-MON', 'KSI-SVC-ACM']
+  tag nist_r4:               ['CM-6 a', 'RA-5 a']
   tag cci:                   ['CCI-001054', 'CCI-000363']
   tag cis_rid:               '5.3.2.1'
   tag cis_number:            '5.3.2.1'

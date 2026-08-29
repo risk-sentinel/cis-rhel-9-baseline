@@ -31,7 +31,10 @@ control 'C-2.3.1' do
     ```
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AC-2 i 1', 'AU-8 a']
+  tag ksi:                   ['KSI-IAM-APM', 'KSI-IAM-JIT', 'KSI-IAM-SNU', 'KSI-IAM-SUS', 'KSI-MLA-OSM']
+  tag nist_r4:               ['AC-2 i 1', 'AU-8 a']
   tag cci:                   ['CCI-002126', 'CCI-000159']
   tag cis_rid:               '2.3.1'
   tag cis_number:            '2.3.1'

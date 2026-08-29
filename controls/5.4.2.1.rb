@@ -32,7 +32,10 @@ control 'C-5.4.2.1' do
     Modify any users other than `root` with UID `0` and assign them a new UID.
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['CM-6 b']
+  tag ksi:                   ['KSI-CMT-LMC', 'KSI-CMT-RMV', 'KSI-MLA-EVC', 'KSI-SVC-ACM']
+  tag nist_r4:               ['CM-6 b']
   tag cci:                   ['CCI-000366']
   tag cis_rid:               '5.4.2.1'
   tag cis_number:            '5.4.2.1'

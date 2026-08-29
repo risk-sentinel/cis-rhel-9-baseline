@@ -31,7 +31,10 @@ control 'C-1.3.1.8' do
     ```
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['CM-7 a', 'AC-8 a']
+  tag ksi:                   ['KSI-CMT-RMV', 'KSI-IAM-JIT']
+  tag nist_r4:               ['CM-7 a']
   tag cci:                   ['CCI-000381', 'CCI-000051']
   tag cis_rid:               '1.3.1.8'
   tag cis_number:            '1.3.1.8'

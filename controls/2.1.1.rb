@@ -67,7 +67,10 @@ control 'C-2.1.1' do
     ```
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['AU-3 a', 'MP-7 (a)']
+  tag ksi:                   ['KSI-MLA-OSM']
+  tag nist_r4:               ['AU-3', 'MP-7']
   tag cci:                   ['CCI-000130', 'CCI-002581']
   tag cis_rid:               '2.1.1'
   tag cis_number:            '2.1.1'

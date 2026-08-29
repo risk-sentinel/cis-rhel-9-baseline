@@ -73,7 +73,10 @@ control 'C-5.4.1.4' do
     - It is recommended that the chosen hashing algorithm is consistent across `/etc/login.defs` and the PAM configuration
   "
   tag severity:              'medium'
+  tag severity_source:       'unassessed'
   tag nist:                  ['SC-28', 'CM-8 a 1']
+  tag ksi:                   ['KSI-PIY-GIV', 'KSI-SVC-SIN']
+  tag nist_r4:               ['CM-8 a 1', 'SC-28']
   tag cci:                   ['CCI-001199', 'CCI-000389']
   tag cis_rid:               '5.4.1.4'
   tag cis_number:            '5.4.1.4'
