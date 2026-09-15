@@ -58,6 +58,7 @@ control 'C-5.4.2.4' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'alternative'
+  tag exec_validated:        false
   tag attestation_category:  'operational'
 
   # access_model axis: federated_ssm makes root access controllable by positive

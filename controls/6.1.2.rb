@@ -97,6 +97,7 @@ control 'C-6.1.2' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   # host_lifecycle axis: a scheduled runtime integrity scan is N/A on an
   # ephemeral/immutable instance — integrity is established at image build and asserted

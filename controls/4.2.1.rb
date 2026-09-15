@@ -78,6 +78,7 @@ control 'C-4.2.1' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'alternative'
+  tag exec_validated:        false
   tag attestation_category:  'operational'
 
   # network_firewall axis: under cloud_sg/both, "drop unnecessary services/ports" is

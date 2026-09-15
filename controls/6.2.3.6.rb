@@ -77,7 +77,7 @@ control 'C-6.2.3.6' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
-
+  tag exec_validated:        false
   # log_pipeline axis: off-box forwarding is proven by durable CloudWatch ingestion
   # (e.g. the CloudWatch agent rather than rsyslog-remote); onbox => not forwarding (N/A).
   if log_offbox?

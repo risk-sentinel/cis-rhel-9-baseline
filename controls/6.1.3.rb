@@ -166,6 +166,7 @@ control 'C-6.1.3' do
   tag cis_level:             1
   tag cis_scored:            true
   tag implementation_status: 'implemented'
+  tag exec_validated:        true
 
   # host_lifecycle axis: protecting the audit tools inside an AIDE config is N/A on
   # an ephemeral/immutable instance (no runtime AIDE) — integrity is established at image
