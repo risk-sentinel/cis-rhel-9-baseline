@@ -151,7 +151,7 @@ jobs:
 include:
   - project: risk-sentinel/cis-rhel-9-baseline
     ref: v0.1.3
-    file: /ci/gitlab/exec-evidence.yml
+    file: /ci/jobs/exec-evidence.yml
     inputs:
       target: my-rhel-host
       boundary: my-boundary

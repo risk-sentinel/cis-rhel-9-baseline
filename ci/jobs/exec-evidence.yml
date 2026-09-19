@@ -5,7 +5,7 @@
 #   include:
 #     - project: <your-org>/cis-rhel-9-baseline
 #       ref: v0.1.3
-#       file: /ci/gitlab/exec-evidence.yml
+#       file: /ci/jobs/exec-evidence.yml
 #       inputs:
 #         target: my-account
 #         profile_name: cis-rhel-9-v2.0.0
