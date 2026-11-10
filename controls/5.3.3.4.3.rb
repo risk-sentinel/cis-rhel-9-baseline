@@ -96,10 +96,10 @@ control 'C-5.3.3.4.3' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['SC-28', 'CM-8 a 1']
-  tag ksi:                   ['KSI-PIY-GIV', 'KSI-SVC-SIN']
-  tag nist_r4:               ['CM-8 a 1', 'SC-28']
-  tag cci:                   ['CCI-001199', 'CCI-000389']
+  tag nist:                  ['SC-28 (1)', 'SC-28']
+  tag ksi:                   ['KSI-SVC-SIN']
+  tag nist_r4:               ['SC-28', 'SC-28 (1)']
+  tag cci:                   ['CCI-002476', 'CCI-002475', 'CCI-001199']
   tag cis_rid:               '5.3.3.4.3'
   tag cis_number:            '5.3.3.4.3'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'

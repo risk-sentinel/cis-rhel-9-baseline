@@ -36,10 +36,10 @@ control 'C-7.2.3' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['AC-3', 'AC-8 a']
-  tag ksi:                   ['KSI-IAM-APM', 'KSI-IAM-ELP', 'KSI-IAM-JIT']
-  tag nist_r4:               ['AC-3']
-  tag cci:                   ['CCI-000213', 'CCI-000051']
+  tag nist:                  ['AC-3', 'AC-6', 'AC-3 (11)', 'AT-2 (4)', 'AT-2 a 1']
+  tag ksi:                   ['KSI-CED-RAT', 'KSI-IAM-APM', 'KSI-IAM-ELP', 'KSI-IAM-JIT']
+  tag nist_r4:               ['AC-3', 'AC-6', 'AT-2 a']
+  tag cci:                   ['CCI-000213', 'CCI-000225', 'CCI-003644', 'CCI-003777', 'CCI-000106']
   tag cis_rid:               '7.2.3'
   tag cis_number:            '7.2.3'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'
