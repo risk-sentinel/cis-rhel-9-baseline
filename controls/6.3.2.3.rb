@@ -76,10 +76,10 @@ control 'C-6.3.2.3' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['AU-2 a', 'AU-4']
+  tag nist:                  ['AU-12 c', 'AU-12 a', 'AU-2 a', 'AU-4', 'AU-5 (1)']
   tag ksi:                   ['KSI-CMT-LMC', 'KSI-MLA-LET', 'KSI-MLA-OSM', 'KSI-MLA-RVL']
-  tag nist_r4:               ['AU-2 a', 'AU-4']
-  tag cci:                   ['CCI-000123', 'CCI-001848']
+  tag nist_r4:               ['AU-12 a', 'AU-12 c', 'AU-2 a', 'AU-4', 'AU-5 (1)']
+  tag cci:                   ['CCI-000172', 'CCI-000169', 'CCI-000123', 'CCI-001849', 'CCI-001855']
   tag cis_rid:               '6.3.2.3'
   tag cis_number:            '6.3.2.3'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'

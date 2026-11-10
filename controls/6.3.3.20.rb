@@ -50,10 +50,10 @@ control 'C-6.3.3.20' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['AC-3', 'AC-2 f', 'IA-2 (2)', 'AU-3 a']
-  tag ksi:                   ['KSI-IAM-APM', 'KSI-IAM-ELP', 'KSI-IAM-JIT', 'KSI-IAM-SNU', 'KSI-IAM-SUS', 'KSI-MLA-OSM']
-  tag nist_r4:               ['AC-2 f', 'AC-3', 'AU-3', 'IA-2 (2)']
-  tag cci:                   ['CCI-000213', 'CCI-000011', 'CCI-000766', 'CCI-000130']
+  tag nist:                  ['AC-3', 'AC-6', 'AC-3 (11)', 'AU-3 (1)', 'AU-3 d', 'AU-3 f', 'AU-3 b']
+  tag ksi:                   ['KSI-IAM-APM', 'KSI-IAM-ELP', 'KSI-IAM-JIT', 'KSI-MLA-OSM']
+  tag nist_r4:               ['AC-3', 'AC-6', 'AU-3', 'AU-3 (1)']
+  tag cci:                   ['CCI-000213', 'CCI-000225', 'CCI-003644', 'CCI-000135', 'CCI-000133', 'CCI-001487', 'CCI-000131']
   tag cis_rid:               '6.3.3.20'
   tag cis_number:            '6.3.3.20'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'

@@ -39,10 +39,10 @@ control 'C-5.2.1' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['AC-11 b', 'AC-2 c']
-  tag ksi:                   ['KSI-IAM-APM', 'KSI-IAM-JIT', 'KSI-IAM-SNU', 'KSI-IAM-SUS']
-  tag nist_r4:               ['AC-11 b', 'AC-2 c']
-  tag cci:                   ['CCI-000056', 'CCI-002113']
+  tag nist:                  ['AC-6 (2)', 'AC-6 (5)']
+  tag ksi:                   ['KSI-IAM-JIT', 'KSI-IAM-SNU']
+  tag nist_r4:               ['AC-6 (2)', 'AC-6 (5)']
+  tag cci:                   ['CCI-000039', 'CCI-002227']
   tag cis_rid:               '5.2.1'
   tag cis_number:            '5.2.1'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'

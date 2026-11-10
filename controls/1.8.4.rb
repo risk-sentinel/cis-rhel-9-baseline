@@ -193,10 +193,9 @@ control 'C-1.8.4' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['AC-11 b', 'SA-11 e']
-  tag ksi:                   ['KSI-SCR-MIT']
-  tag nist_r4:               ['AC-11 b', 'SA-11 e']
-  tag cci:                   ['CCI-000056', 'CCI-003178']
+  tag nist:                  ['AC-11 a', 'AC-11 b']
+  tag nist_r4:               ['AC-11 a', 'AC-11 b']
+  tag cci:                   ['CCI-000057', 'CCI-000059', 'CCI-000056']
   tag cis_rid:               '1.8.4'
   tag cis_number:            '1.8.4'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'

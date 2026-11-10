@@ -112,10 +112,10 @@ control 'C-5.3.2.1' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['RA-5 a', 'CM-6 a']
-  tag ksi:                   ['KSI-CMT-LMC', 'KSI-CMT-RMV', 'KSI-MLA-EVC', 'KSI-SCR-MON', 'KSI-SVC-ACM']
-  tag nist_r4:               ['CM-6 a', 'RA-5 a']
-  tag cci:                   ['CCI-001054', 'CCI-000363']
+  tag nist:                  ['RA-5 (11)', 'RA-5 d', 'CA-5 a', 'RA-7']
+  tag ksi:                   ['KSI-PIY-RVD', 'KSI-SCR-MON']
+  tag nist_r4:               ['CA-5 a', 'RA-5 d']
+  tag cci:                   ['CCI-004640', 'CCI-001059', 'CCI-000264', 'CCI-004643']
   tag cis_rid:               '5.3.2.1'
   tag cis_number:            '5.3.2.1'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'
