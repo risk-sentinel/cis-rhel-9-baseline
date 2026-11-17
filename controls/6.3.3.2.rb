@@ -83,10 +83,10 @@ control 'C-6.3.3.2' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['CM-6 b', 'AU-3 a']
-  tag ksi:                   ['KSI-CMT-LMC', 'KSI-CMT-RMV', 'KSI-MLA-EVC', 'KSI-MLA-OSM', 'KSI-SVC-ACM']
-  tag nist_r4:               ['AU-3', 'CM-6 b']
-  tag cci:                   ['CCI-000366', 'CCI-000130']
+  tag nist:                  ['AU-3 (1)', 'AU-3 d', 'AU-3 f', 'AU-3 b']
+  tag ksi:                   ['KSI-MLA-OSM']
+  tag nist_r4:               ['AU-3', 'AU-3 (1)']
+  tag cci:                   ['CCI-000135', 'CCI-000133', 'CCI-001487', 'CCI-000131']
   tag cis_rid:               '6.3.3.2'
   tag cis_number:            '6.3.3.2'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'

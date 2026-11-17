@@ -81,10 +81,10 @@ control 'C-5.3.2.2' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['CM-6 a']
-  tag ksi:                   ['KSI-CMT-LMC', 'KSI-CMT-RMV', 'KSI-MLA-EVC', 'KSI-SVC-ACM']
-  tag nist_r4:               ['CM-6 a']
-  tag cci:                   ['CCI-000364', 'CCI-000363']
+  tag nist:                  ['CM-6 a', 'CM-1 a 2', 'CM-1 c 2', 'CM-2 a']
+  tag ksi:                   ['KSI-CMT-LMC', 'KSI-CMT-RMV', 'KSI-CNA-DFP', 'KSI-CNA-IBP', 'KSI-MLA-EVC', 'KSI-SVC-ACM']
+  tag nist_r4:               ['CM-1 a 2']
+  tag cci:                   ['CCI-003941', 'CCI-000290', 'CCI-003906', 'CCI-003909']
   tag cis_rid:               '5.3.2.2'
   tag cis_number:            '5.3.2.2'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'

@@ -62,10 +62,10 @@ control 'C-6.2.3.4' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['AC-3', 'AC-2 a', 'AC-2 f', 'IA-2 (2)', 'AU-2 a']
-  tag ksi:                   ['KSI-CMT-LMC', 'KSI-IAM-APM', 'KSI-IAM-ELP', 'KSI-IAM-JIT', 'KSI-IAM-SNU', 'KSI-IAM-SUS', 'KSI-MLA-LET', 'KSI-MLA-OSM', 'KSI-MLA-RVL']
-  tag nist_r4:               ['AC-2 a', 'AC-2 f', 'AC-3', 'AU-2 a', 'IA-2 (2)']
-  tag cci:                   ['CCI-000213', 'CCI-002110', 'CCI-000011', 'CCI-000766', 'CCI-000123']
+  tag nist:                  ['AC-3', 'AC-6', 'AC-3 (11)', 'AU-12 c', 'AU-12 a', 'AU-2 a']
+  tag ksi:                   ['KSI-CMT-LMC', 'KSI-IAM-APM', 'KSI-IAM-ELP', 'KSI-IAM-JIT', 'KSI-MLA-LET', 'KSI-MLA-OSM', 'KSI-MLA-RVL']
+  tag nist_r4:               ['AC-3', 'AC-6', 'AU-12 a', 'AU-12 c', 'AU-2 a']
+  tag cci:                   ['CCI-000213', 'CCI-000225', 'CCI-003644', 'CCI-000172', 'CCI-000169', 'CCI-000123']
   tag cis_rid:               '6.2.3.4'
   tag cis_number:            '6.2.3.4'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'

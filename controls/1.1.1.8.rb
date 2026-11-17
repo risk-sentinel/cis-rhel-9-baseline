@@ -130,7 +130,7 @@ control 'C-1.1.1.8' do
   tag severity_source:       'unassessed'
   tag nist:                  ['MP-7 (a)']
   tag nist_r4:               ['MP-7']
-  tag cci:                   ['CCI-002581']
+  tag cci:                   ['CCI-002584']
   tag cis_rid:               '1.1.1.8'
   tag cis_number:            '1.1.1.8'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'

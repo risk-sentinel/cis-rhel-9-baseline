@@ -96,10 +96,10 @@ control 'C-3.1.2' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['CM-7 a', 'AC-20 (1) (a)', 'AC-20 (1) (b)']
-  tag ksi:                   ['KSI-CMT-RMV', 'KSI-CNA-MAT', 'KSI-IAM-ELP', 'KSI-IAM-JIT', 'KSI-MLA-LET', 'KSI-MLA-OSM']
-  tag nist_r4:               ['AC-20 (1) (a)', 'AC-20 (1) (b)', 'CM-7 a']
-  tag cci:                   ['CCI-000381', 'CCI-002336', 'CCI-002337']
+  tag nist:                  ['CM-7 (1) (b)', 'CM-7 b', 'CM-7 a', 'CM-7 (1) (a)']
+  tag ksi:                   ['KSI-CMT-RMV', 'KSI-CMT-RVP', 'KSI-CNA-RNT', 'KSI-IAM-JIT', 'KSI-SVC-ACM', 'KSI-SVC-EIS']
+  tag nist_r4:               ['CM-7 (1) (a)', 'CM-7 (1) (b)', 'CM-7 a', 'CM-7 b']
+  tag cci:                   ['CCI-001762', 'CCI-000382', 'CCI-000381', 'CCI-000384']
   tag cis_rid:               '3.1.2'
   tag cis_number:            '3.1.2'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'

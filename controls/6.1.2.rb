@@ -85,10 +85,10 @@ control 'C-6.1.2' do
   "
   tag severity:              'medium'
   tag severity_source:       'unassessed'
-  tag nist:                  ['AU-2 a', 'SC-12 (3)']
+  tag nist:                  ['AU-12 c', 'AU-2 c', 'AU-12 a']
   tag ksi:                   ['KSI-CMT-LMC', 'KSI-MLA-LET', 'KSI-MLA-OSM', 'KSI-MLA-RVL']
-  tag nist_r4:               ['AU-2 a', 'SC-12 (3)']
-  tag cci:                   ['CCI-000123', 'CCI-002447']
+  tag nist_r4:               ['AU-12 a', 'AU-12 c', 'AU-2 d']
+  tag cci:                   ['CCI-000172', 'CCI-000126', 'CCI-000169']
   tag cis_rid:               '6.1.2'
   tag cis_number:            '6.1.2'
   tag cis_benchmark:         'CIS Red Hat Enterprise Linux 9 Benchmark v2.0.0'
